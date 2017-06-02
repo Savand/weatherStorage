@@ -1,7 +1,5 @@
 package mteo.savand.dto;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
@@ -10,8 +8,11 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
 import org.joda.time.DateTime;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class WeatherObjectDto {
     @NotNull(message = "stationId must not be null")
     private Integer stationId;
@@ -42,27 +43,27 @@ public class WeatherObjectDto {
     private String windDirection;
 
     
-    public int getStationId() {
+    public Integer getStationId() {
         return stationId;
     }
 
-    public void setStationId(int stationId) {
+    public void setStationId(Integer stationId) {
         this.stationId = stationId;
     }
 
-    public float getLocationLatitude() {
+    public Float getLocationLatitude() {
         return locationLatitude;
     }
 
-    public void setLocationLatitude(float locationLatitude) {
+    public void setLocationLatitude(Float locationLatitude) {
         this.locationLatitude = locationLatitude;
     }
 
-    public float getLocationLongitude() {
+    public Float getLocationLongitude() {
         return locationLongitude;
     }
 
-    public void setLocationLongitude(float locationLongitude) {
+    public void setLocationLongitude(Float locationLongitude) {
         this.locationLongitude = locationLongitude;
     }
 
@@ -74,27 +75,27 @@ public class WeatherObjectDto {
         this.date = date;
     }
 
-    public int getTemperatureInDegreesCelsious() {
+    public Integer getTemperatureInDegreesCelsious() {
         return temperatureInDegreesCelsious;
     }
 
-    public void setTemperatureInDegreesCelsious(int temperatureInDegreesCelsious) {
+    public void setTemperatureInDegreesCelsious(Integer temperatureInDegreesCelsious) {
         this.temperatureInDegreesCelsious = temperatureInDegreesCelsious;
     }
 
-    public int getHumidityInPercentage() {
+    public Integer getHumidityInPercentage() {
         return humidityInPercentage;
     }
 
-    public void setHumidityInPercentage(int humidityInPercentage) {
+    public void setHumidityInPercentage(Integer humidityInPercentage) {
         this.humidityInPercentage = humidityInPercentage;
     }
 
-    public int getWindSpeedInKnots() {
+    public Integer getWindSpeedInKnots() {
         return windSpeedInKnots;
     }
 
-    public void setWindSpeedInKnots(int windSpeedInKnots) {
+    public void setWindSpeedInKnots(Integer windSpeedInKnots) {
         this.windSpeedInKnots = windSpeedInKnots;
     }
 
@@ -110,8 +111,6 @@ public class WeatherObjectDto {
         return new WeatherObjectDto().new WeatherObjectDtoBuilder();
     }
     
-    
-
 
     public class WeatherObjectDtoBuilder {
 

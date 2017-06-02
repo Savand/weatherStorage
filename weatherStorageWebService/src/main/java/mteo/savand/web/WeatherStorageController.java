@@ -13,7 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
-import org.springframework.validation.ObjectError;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import mteo.savand.dao.WeatherStorageDao;
 import mteo.savand.dao.WeatherStorageDaoImpl;
 import mteo.savand.dto.WeatherObjectDto;
-import mteo.savand.web.util.ErrorMessageDto;
+import mteo.savand.web.util.ObservationErrorMessageDto;
 
 @RestController
 @RequestMapping("/rest/weather")
@@ -45,17 +45,16 @@ public class WeatherStorageController {
         if (errors.hasErrors()) {
 
             // get all errors
-            List<ObjectError> allErrors = errors.getAllErrors();
-            List<ErrorMessageDto> dtoErrorList = new LinkedList<>();
+            List<FieldError> fieldErrors = errors.getFieldErrors();
+            List<ObservationErrorMessageDto> dtoErrors = new LinkedList<>();
             
-            for (ObjectError objectError : allErrors) {
-                String targetName = objectError.getObjectName();
-                String message = objectError.getDefaultMessage();
-                dtoErrorList.add(new ErrorMessageDto(targetName, message));
+            for (FieldError fieldError : fieldErrors) {
+                dtoErrors.add(new ObservationErrorMessageDto(fieldError.getField(), fieldError.getDefaultMessage())) ;
             }
             
-            LOG.debug(dtoErrorList.toString());
-            return ResponseEntity.badRequest().body(dtoErrorList);
+            
+            LOG.debug(fieldErrors.toString());
+            return ResponseEntity.badRequest().body(dtoErrors);
 
         }
         
@@ -67,7 +66,7 @@ public class WeatherStorageController {
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         }
         
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(HttpStatus.CREATED).build();
         
     }
 }
