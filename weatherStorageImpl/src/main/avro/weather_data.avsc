@@ -1,0 +1,22 @@
+{
+  "namespace" : "mteo.savand.avro_generate",  
+  "type": "record",
+  "name": "WeatherObject",
+  
+  "fields" : [
+  	{"name" : "stationId", "type" : "int"},
+  	{"name" : "geoLocationObject", "type" : {"namespace" : "mteo.savand.avro_generate", "type" : "record", "name": "GeoLocationObject", "fields" : [
+	  	{"name" : "latitude", "type" : "float"},
+	  	{"name" : "longitude", "type" : "float"}
+	  ]}},
+	{"name": "date", "type" : {"type": "long", "logicalType":"timestamp-millis"}},
+	{"name" : "temperatureInDegreesCelsious", "type" : "int"},
+	{"name" : "humidityInPercentage", "type" :"int"},
+	{"name" : "wind", "type" : {"namespace" : "mteo.savand.avro_generate", "type" : "record", "name": "WindObject", "fields" : [
+	  	{"name" : "windSpeedInKnots", "type" : "int"},
+	  	{"name" : "direction", "type" : { "type": "enum", "name": "WindDirection", "symbols" : ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W",  "WNW", "NW", "NNW"]
+}}
+	  ]}}
+	
+  ]
+}
