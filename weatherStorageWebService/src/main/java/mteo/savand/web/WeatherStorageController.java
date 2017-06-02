@@ -41,21 +41,17 @@ public class WeatherStorageController {
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> store(@Valid @RequestBody WeatherObjectDto weatherObjectDto, Errors errors){
         LOG.debug("Validating object that came to controller");
-        
         if (errors.hasErrors()) {
-
             // get all errors
             List<FieldError> fieldErrors = errors.getFieldErrors();
-            List<ObservationErrorMessageDto> dtoErrors = new LinkedList<>();
             
-            for (FieldError fieldError : fieldErrors) {
-                dtoErrors.add(new ObservationErrorMessageDto(fieldError.getField(), fieldError.getDefaultMessage())) ;
-            }
-            
+            List<ObservationErrorMessageDto> dtoErrors = fieldErrors.stream()
+            .map(fieldError -> {
+               return new ObservationErrorMessageDto(fieldError.getField(), fieldError.getDefaultMessage());
+            }).collect(Collectors.toList());
             
             LOG.debug(fieldErrors.toString());
             return ResponseEntity.badRequest().body(dtoErrors);
-
         }
         
         LOG.debug("store triggered in controller");

@@ -38,8 +38,7 @@ public class WeatherObjectDto {
     @Range(min = 0, max = 220, message = "windSpeedInKnots must be in range 0-220")
     private Integer windSpeedInKnots;
 
-    @NotNull(message = "direction must not be null")
-    @NotBlank
+    @NotBlank(message = "windDirection must not be null")
     private String windDirection;
 
     
