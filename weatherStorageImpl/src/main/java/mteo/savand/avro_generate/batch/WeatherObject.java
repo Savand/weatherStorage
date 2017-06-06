@@ -3,22 +3,22 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package mteo.savand.avro_batch;
+package mteo.savand.avro_generate.batch;
 
 import org.apache.avro.specific.SpecificData;
 
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 4918018367098032664L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"WeatherObject\",\"namespace\":\"mteo.savand.avro_batch\",\"fields\":[{\"name\":\"stationId\",\"type\":\"int\"},{\"name\":\"geoLocationObject\",\"type\":{\"type\":\"record\",\"name\":\"GeoLocationObject\",\"fields\":[{\"name\":\"latitude\",\"type\":\"float\"},{\"name\":\"longitude\",\"type\":\"float\"}]}},{\"name\":\"date\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"temperatureInDegreesCelsious\",\"type\":\"int\"},{\"name\":\"humidityInPercentage\",\"type\":\"int\"},{\"name\":\"wind\",\"type\":{\"type\":\"record\",\"name\":\"WindObject\",\"fields\":[{\"name\":\"windSpeedInKnots\",\"type\":\"int\"},{\"name\":\"direction\",\"type\":{\"type\":\"enum\",\"name\":\"WindDirection\",\"symbols\":[\"N\",\"NNE\",\"NE\",\"ENE\",\"E\",\"ESE\",\"SE\",\"SSE\",\"S\",\"SSW\",\"SW\",\"WSW\",\"W\",\"WNW\",\"NW\",\"NNW\"]}}]}}]}");
+  private static final long serialVersionUID = -8916708864821696705L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"WeatherObject\",\"namespace\":\"mteo.savand.avro_generate.batch\",\"fields\":[{\"name\":\"stationId\",\"type\":\"int\"},{\"name\":\"geoLocationObject\",\"type\":{\"type\":\"record\",\"name\":\"GeoLocationObject\",\"fields\":[{\"name\":\"latitude\",\"type\":\"float\"},{\"name\":\"longitude\",\"type\":\"float\"}]}},{\"name\":\"date\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"temperatureInDegreesCelsious\",\"type\":\"int\"},{\"name\":\"humidityInPercentage\",\"type\":\"int\"},{\"name\":\"wind\",\"type\":{\"type\":\"record\",\"name\":\"WindObject\",\"fields\":[{\"name\":\"windSpeedInKnots\",\"type\":\"int\"},{\"name\":\"direction\",\"type\":{\"type\":\"enum\",\"name\":\"WindDirection\",\"symbols\":[\"N\",\"NNE\",\"NE\",\"ENE\",\"E\",\"ESE\",\"SE\",\"SSE\",\"S\",\"SSW\",\"SW\",\"WSW\",\"W\",\"WNW\",\"NW\",\"NNW\"]}}]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public int stationId;
-  @Deprecated public mteo.savand.avro_batch.GeoLocationObject geoLocationObject;
+  @Deprecated public mteo.savand.avro_generate.batch.GeoLocationObject geoLocationObject;
   @Deprecated public org.joda.time.DateTime date;
   @Deprecated public int temperatureInDegreesCelsious;
   @Deprecated public int humidityInPercentage;
-  @Deprecated public mteo.savand.avro_batch.WindObject wind;
+  @Deprecated public mteo.savand.avro_generate.batch.WindObject wind;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -36,7 +36,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
    * @param humidityInPercentage The new value for humidityInPercentage
    * @param wind The new value for wind
    */
-  public WeatherObject(java.lang.Integer stationId, mteo.savand.avro_batch.GeoLocationObject geoLocationObject, org.joda.time.DateTime date, java.lang.Integer temperatureInDegreesCelsious, java.lang.Integer humidityInPercentage, mteo.savand.avro_batch.WindObject wind) {
+  public WeatherObject(java.lang.Integer stationId, mteo.savand.avro_generate.batch.GeoLocationObject geoLocationObject, org.joda.time.DateTime date, java.lang.Integer temperatureInDegreesCelsious, java.lang.Integer humidityInPercentage, mteo.savand.avro_generate.batch.WindObject wind) {
     this.stationId = stationId;
     this.geoLocationObject = geoLocationObject;
     this.date = date;
@@ -84,11 +84,11 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: stationId = (java.lang.Integer)value$; break;
-    case 1: geoLocationObject = (mteo.savand.avro_batch.GeoLocationObject)value$; break;
+    case 1: geoLocationObject = (mteo.savand.avro_generate.batch.GeoLocationObject)value$; break;
     case 2: date = (org.joda.time.DateTime)value$; break;
     case 3: temperatureInDegreesCelsious = (java.lang.Integer)value$; break;
     case 4: humidityInPercentage = (java.lang.Integer)value$; break;
-    case 5: wind = (mteo.savand.avro_batch.WindObject)value$; break;
+    case 5: wind = (mteo.savand.avro_generate.batch.WindObject)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -113,7 +113,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
    * Gets the value of the 'geoLocationObject' field.
    * @return The value of the 'geoLocationObject' field.
    */
-  public mteo.savand.avro_batch.GeoLocationObject getGeoLocationObject() {
+  public mteo.savand.avro_generate.batch.GeoLocationObject getGeoLocationObject() {
     return geoLocationObject;
   }
 
@@ -121,7 +121,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
    * Sets the value of the 'geoLocationObject' field.
    * @param value the value to set.
    */
-  public void setGeoLocationObject(mteo.savand.avro_batch.GeoLocationObject value) {
+  public void setGeoLocationObject(mteo.savand.avro_generate.batch.GeoLocationObject value) {
     this.geoLocationObject = value;
   }
 
@@ -177,7 +177,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
    * Gets the value of the 'wind' field.
    * @return The value of the 'wind' field.
    */
-  public mteo.savand.avro_batch.WindObject getWind() {
+  public mteo.savand.avro_generate.batch.WindObject getWind() {
     return wind;
   }
 
@@ -185,7 +185,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
    * Sets the value of the 'wind' field.
    * @param value the value to set.
    */
-  public void setWind(mteo.savand.avro_batch.WindObject value) {
+  public void setWind(mteo.savand.avro_generate.batch.WindObject value) {
     this.wind = value;
   }
 
@@ -193,8 +193,8 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
    * Creates a new WeatherObject RecordBuilder.
    * @return A new WeatherObject RecordBuilder
    */
-  public static mteo.savand.avro_batch.WeatherObject.Builder newBuilder() {
-    return new mteo.savand.avro_batch.WeatherObject.Builder();
+  public static mteo.savand.avro_generate.batch.WeatherObject.Builder newBuilder() {
+    return new mteo.savand.avro_generate.batch.WeatherObject.Builder();
   }
 
   /**
@@ -202,8 +202,8 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
    * @param other The existing builder to copy.
    * @return A new WeatherObject RecordBuilder
    */
-  public static mteo.savand.avro_batch.WeatherObject.Builder newBuilder(mteo.savand.avro_batch.WeatherObject.Builder other) {
-    return new mteo.savand.avro_batch.WeatherObject.Builder(other);
+  public static mteo.savand.avro_generate.batch.WeatherObject.Builder newBuilder(mteo.savand.avro_generate.batch.WeatherObject.Builder other) {
+    return new mteo.savand.avro_generate.batch.WeatherObject.Builder(other);
   }
 
   /**
@@ -211,8 +211,8 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
    * @param other The existing instance to copy.
    * @return A new WeatherObject RecordBuilder
    */
-  public static mteo.savand.avro_batch.WeatherObject.Builder newBuilder(mteo.savand.avro_batch.WeatherObject other) {
-    return new mteo.savand.avro_batch.WeatherObject.Builder(other);
+  public static mteo.savand.avro_generate.batch.WeatherObject.Builder newBuilder(mteo.savand.avro_generate.batch.WeatherObject other) {
+    return new mteo.savand.avro_generate.batch.WeatherObject.Builder(other);
   }
 
   /**
@@ -222,13 +222,13 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
     implements org.apache.avro.data.RecordBuilder<WeatherObject> {
 
     private int stationId;
-    private mteo.savand.avro_batch.GeoLocationObject geoLocationObject;
-    private mteo.savand.avro_batch.GeoLocationObject.Builder geoLocationObjectBuilder;
+    private mteo.savand.avro_generate.batch.GeoLocationObject geoLocationObject;
+    private mteo.savand.avro_generate.batch.GeoLocationObject.Builder geoLocationObjectBuilder;
     private org.joda.time.DateTime date;
     private int temperatureInDegreesCelsious;
     private int humidityInPercentage;
-    private mteo.savand.avro_batch.WindObject wind;
-    private mteo.savand.avro_batch.WindObject.Builder windBuilder;
+    private mteo.savand.avro_generate.batch.WindObject wind;
+    private mteo.savand.avro_generate.batch.WindObject.Builder windBuilder;
 
     /** Creates a new Builder */
     private Builder() {
@@ -239,7 +239,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(mteo.savand.avro_batch.WeatherObject.Builder other) {
+    private Builder(mteo.savand.avro_generate.batch.WeatherObject.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.stationId)) {
         this.stationId = data().deepCopy(fields()[0].schema(), other.stationId);
@@ -250,7 +250,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
         fieldSetFlags()[1] = true;
       }
       if (other.hasGeoLocationObjectBuilder()) {
-        this.geoLocationObjectBuilder = mteo.savand.avro_batch.GeoLocationObject.newBuilder(other.getGeoLocationObjectBuilder());
+        this.geoLocationObjectBuilder = mteo.savand.avro_generate.batch.GeoLocationObject.newBuilder(other.getGeoLocationObjectBuilder());
       }
       if (isValidValue(fields()[2], other.date)) {
         this.date = data().deepCopy(fields()[2].schema(), other.date);
@@ -269,7 +269,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
         fieldSetFlags()[5] = true;
       }
       if (other.hasWindBuilder()) {
-        this.windBuilder = mteo.savand.avro_batch.WindObject.newBuilder(other.getWindBuilder());
+        this.windBuilder = mteo.savand.avro_generate.batch.WindObject.newBuilder(other.getWindBuilder());
       }
     }
 
@@ -277,7 +277,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
      * Creates a Builder by copying an existing WeatherObject instance
      * @param other The existing instance to copy.
      */
-    private Builder(mteo.savand.avro_batch.WeatherObject other) {
+    private Builder(mteo.savand.avro_generate.batch.WeatherObject other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.stationId)) {
         this.stationId = data().deepCopy(fields()[0].schema(), other.stationId);
@@ -320,7 +320,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
       * @param value The value of 'stationId'.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.WeatherObject.Builder setStationId(int value) {
+    public mteo.savand.avro_generate.batch.WeatherObject.Builder setStationId(int value) {
       validate(fields()[0], value);
       this.stationId = value;
       fieldSetFlags()[0] = true;
@@ -340,7 +340,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
       * Clears the value of the 'stationId' field.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.WeatherObject.Builder clearStationId() {
+    public mteo.savand.avro_generate.batch.WeatherObject.Builder clearStationId() {
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -349,7 +349,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
       * Gets the value of the 'geoLocationObject' field.
       * @return The value.
       */
-    public mteo.savand.avro_batch.GeoLocationObject getGeoLocationObject() {
+    public mteo.savand.avro_generate.batch.GeoLocationObject getGeoLocationObject() {
       return geoLocationObject;
     }
 
@@ -358,7 +358,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
       * @param value The value of 'geoLocationObject'.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.WeatherObject.Builder setGeoLocationObject(mteo.savand.avro_batch.GeoLocationObject value) {
+    public mteo.savand.avro_generate.batch.WeatherObject.Builder setGeoLocationObject(mteo.savand.avro_generate.batch.GeoLocationObject value) {
       validate(fields()[1], value);
       this.geoLocationObjectBuilder = null;
       this.geoLocationObject = value;
@@ -378,12 +378,12 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
      * Gets the Builder instance for the 'geoLocationObject' field and creates one if it doesn't exist yet.
      * @return This builder.
      */
-    public mteo.savand.avro_batch.GeoLocationObject.Builder getGeoLocationObjectBuilder() {
+    public mteo.savand.avro_generate.batch.GeoLocationObject.Builder getGeoLocationObjectBuilder() {
       if (geoLocationObjectBuilder == null) {
         if (hasGeoLocationObject()) {
-          setGeoLocationObjectBuilder(mteo.savand.avro_batch.GeoLocationObject.newBuilder(geoLocationObject));
+          setGeoLocationObjectBuilder(mteo.savand.avro_generate.batch.GeoLocationObject.newBuilder(geoLocationObject));
         } else {
-          setGeoLocationObjectBuilder(mteo.savand.avro_batch.GeoLocationObject.newBuilder());
+          setGeoLocationObjectBuilder(mteo.savand.avro_generate.batch.GeoLocationObject.newBuilder());
         }
       }
       return geoLocationObjectBuilder;
@@ -394,7 +394,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
      * @param value The builder instance that must be set.
      * @return This builder.
      */
-    public mteo.savand.avro_batch.WeatherObject.Builder setGeoLocationObjectBuilder(mteo.savand.avro_batch.GeoLocationObject.Builder value) {
+    public mteo.savand.avro_generate.batch.WeatherObject.Builder setGeoLocationObjectBuilder(mteo.savand.avro_generate.batch.GeoLocationObject.Builder value) {
       clearGeoLocationObject();
       geoLocationObjectBuilder = value;
       return this;
@@ -412,7 +412,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
       * Clears the value of the 'geoLocationObject' field.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.WeatherObject.Builder clearGeoLocationObject() {
+    public mteo.savand.avro_generate.batch.WeatherObject.Builder clearGeoLocationObject() {
       geoLocationObject = null;
       geoLocationObjectBuilder = null;
       fieldSetFlags()[1] = false;
@@ -432,7 +432,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
       * @param value The value of 'date'.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.WeatherObject.Builder setDate(org.joda.time.DateTime value) {
+    public mteo.savand.avro_generate.batch.WeatherObject.Builder setDate(org.joda.time.DateTime value) {
       validate(fields()[2], value);
       this.date = value;
       fieldSetFlags()[2] = true;
@@ -452,7 +452,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
       * Clears the value of the 'date' field.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.WeatherObject.Builder clearDate() {
+    public mteo.savand.avro_generate.batch.WeatherObject.Builder clearDate() {
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -470,7 +470,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
       * @param value The value of 'temperatureInDegreesCelsious'.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.WeatherObject.Builder setTemperatureInDegreesCelsious(int value) {
+    public mteo.savand.avro_generate.batch.WeatherObject.Builder setTemperatureInDegreesCelsious(int value) {
       validate(fields()[3], value);
       this.temperatureInDegreesCelsious = value;
       fieldSetFlags()[3] = true;
@@ -490,7 +490,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
       * Clears the value of the 'temperatureInDegreesCelsious' field.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.WeatherObject.Builder clearTemperatureInDegreesCelsious() {
+    public mteo.savand.avro_generate.batch.WeatherObject.Builder clearTemperatureInDegreesCelsious() {
       fieldSetFlags()[3] = false;
       return this;
     }
@@ -508,7 +508,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
       * @param value The value of 'humidityInPercentage'.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.WeatherObject.Builder setHumidityInPercentage(int value) {
+    public mteo.savand.avro_generate.batch.WeatherObject.Builder setHumidityInPercentage(int value) {
       validate(fields()[4], value);
       this.humidityInPercentage = value;
       fieldSetFlags()[4] = true;
@@ -528,7 +528,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
       * Clears the value of the 'humidityInPercentage' field.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.WeatherObject.Builder clearHumidityInPercentage() {
+    public mteo.savand.avro_generate.batch.WeatherObject.Builder clearHumidityInPercentage() {
       fieldSetFlags()[4] = false;
       return this;
     }
@@ -537,7 +537,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
       * Gets the value of the 'wind' field.
       * @return The value.
       */
-    public mteo.savand.avro_batch.WindObject getWind() {
+    public mteo.savand.avro_generate.batch.WindObject getWind() {
       return wind;
     }
 
@@ -546,7 +546,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
       * @param value The value of 'wind'.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.WeatherObject.Builder setWind(mteo.savand.avro_batch.WindObject value) {
+    public mteo.savand.avro_generate.batch.WeatherObject.Builder setWind(mteo.savand.avro_generate.batch.WindObject value) {
       validate(fields()[5], value);
       this.windBuilder = null;
       this.wind = value;
@@ -566,12 +566,12 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
      * Gets the Builder instance for the 'wind' field and creates one if it doesn't exist yet.
      * @return This builder.
      */
-    public mteo.savand.avro_batch.WindObject.Builder getWindBuilder() {
+    public mteo.savand.avro_generate.batch.WindObject.Builder getWindBuilder() {
       if (windBuilder == null) {
         if (hasWind()) {
-          setWindBuilder(mteo.savand.avro_batch.WindObject.newBuilder(wind));
+          setWindBuilder(mteo.savand.avro_generate.batch.WindObject.newBuilder(wind));
         } else {
-          setWindBuilder(mteo.savand.avro_batch.WindObject.newBuilder());
+          setWindBuilder(mteo.savand.avro_generate.batch.WindObject.newBuilder());
         }
       }
       return windBuilder;
@@ -582,7 +582,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
      * @param value The builder instance that must be set.
      * @return This builder.
      */
-    public mteo.savand.avro_batch.WeatherObject.Builder setWindBuilder(mteo.savand.avro_batch.WindObject.Builder value) {
+    public mteo.savand.avro_generate.batch.WeatherObject.Builder setWindBuilder(mteo.savand.avro_generate.batch.WindObject.Builder value) {
       clearWind();
       windBuilder = value;
       return this;
@@ -600,7 +600,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
       * Clears the value of the 'wind' field.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.WeatherObject.Builder clearWind() {
+    public mteo.savand.avro_generate.batch.WeatherObject.Builder clearWind() {
       wind = null;
       windBuilder = null;
       fieldSetFlags()[5] = false;
@@ -615,7 +615,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
         if (geoLocationObjectBuilder != null) {
           record.geoLocationObject = this.geoLocationObjectBuilder.build();
         } else {
-          record.geoLocationObject = fieldSetFlags()[1] ? this.geoLocationObject : (mteo.savand.avro_batch.GeoLocationObject) defaultValue(fields()[1]);
+          record.geoLocationObject = fieldSetFlags()[1] ? this.geoLocationObject : (mteo.savand.avro_generate.batch.GeoLocationObject) defaultValue(fields()[1]);
         }
         record.date = fieldSetFlags()[2] ? this.date : (org.joda.time.DateTime) defaultValue(fields()[2]);
         record.temperatureInDegreesCelsious = fieldSetFlags()[3] ? this.temperatureInDegreesCelsious : (java.lang.Integer) defaultValue(fields()[3]);
@@ -623,7 +623,7 @@ public class WeatherObject extends org.apache.avro.specific.SpecificRecordBase i
         if (windBuilder != null) {
           record.wind = this.windBuilder.build();
         } else {
-          record.wind = fieldSetFlags()[5] ? this.wind : (mteo.savand.avro_batch.WindObject) defaultValue(fields()[5]);
+          record.wind = fieldSetFlags()[5] ? this.wind : (mteo.savand.avro_generate.batch.WindObject) defaultValue(fields()[5]);
         }
         return record;
       } catch (Exception e) {

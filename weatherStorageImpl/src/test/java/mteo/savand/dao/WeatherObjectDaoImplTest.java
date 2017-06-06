@@ -10,19 +10,19 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import mteo.savand.avro_batch.GeoLocationObject;
-import mteo.savand.avro_batch.WeatherObject;
-import mteo.savand.avro_batch.WindDirection;
-import mteo.savand.avro_batch.WindObject;
+import mteo.savand.avro_generate.batch.GeoLocationObject;
+import mteo.savand.avro_generate.batch.WeatherObject;
+import mteo.savand.avro_generate.batch.WindDirection;
+import mteo.savand.avro_generate.batch.WindObject;
 
-public class WeatherObjectStorageDaoImplTest {
+public class WeatherObjectDaoImplTest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(WeatherObjectStorageDaoImplTest.class);
-    private WeatherObjectStorageDao dao;
+    private static final Logger LOG = LoggerFactory.getLogger(WeatherObjectDaoImplTest.class);
+    private WeatherObjectDao dao;
     
     @Before
     public void setUp(){
-        dao = new WeatherObjectStorageDaoImpl(new File("avro.obj"));
+        dao = new WeatherObjectDaoImpl(new File("avro.obj"));
     }
     
     @Test

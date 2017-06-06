@@ -14,12 +14,12 @@ import org.apache.avro.specific.SpecificDatumWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import mteo.savand.avro_batch.WeatherObject;
+import mteo.savand.avro_generate.batch.WeatherObject;
 
 
-public class WeatherObjectStorageDaoImpl implements WeatherObjectStorageDao {
+public class WeatherObjectDaoImpl implements WeatherObjectDao {
 
-    private static final Logger LOG = LoggerFactory.getLogger(WeatherObjectStorageDaoImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(WeatherObjectDaoImpl.class);
     private DataFileWriter<WeatherObject> dataFileWriter;
     private DataFileWriter<WeatherObject> fileWriter;
     private DatumWriter<WeatherObject> weatherDatumWriter;
@@ -28,7 +28,7 @@ public class WeatherObjectStorageDaoImpl implements WeatherObjectStorageDao {
     private DataFileReader<WeatherObject> fileReader;
     private File storageFile;
 
-    public WeatherObjectStorageDaoImpl(File file) {
+    public WeatherObjectDaoImpl(File file) {
         LOG.debug("constructing WeatherStorageDaoImpl");
         storageFile = file;
         weatherDatumWriter = new SpecificDatumWriter<WeatherObject>(WeatherObject.class);

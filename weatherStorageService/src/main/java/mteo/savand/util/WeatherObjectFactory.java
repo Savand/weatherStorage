@@ -1,9 +1,9 @@
 package mteo.savand.util;
 
-import mteo.savand.avro_batch.GeoLocationObject;
-import mteo.savand.avro_batch.WeatherObject;
-import mteo.savand.avro_batch.WindDirection;
-import mteo.savand.avro_batch.WindObject;
+import mteo.savand.avro_generate.batch.GeoLocationObject;
+import mteo.savand.avro_generate.batch.WeatherObject;
+import mteo.savand.avro_generate.batch.WindDirection;
+import mteo.savand.avro_generate.batch.WindObject;
 import mteo.savand.dto.WeatherObjectDto;
 
 public class WeatherObjectFactory{

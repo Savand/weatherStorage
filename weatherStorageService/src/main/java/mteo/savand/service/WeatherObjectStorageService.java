@@ -3,8 +3,8 @@ package mteo.savand.service;
 import java.io.IOException;
 import java.util.List;
 
-import mteo.savand.avro_batch.WeatherObject;
-import mteo.savand.dao.WeatherObjectStorageDao;
+import mteo.savand.avro_generate.batch.WeatherObject;
+import mteo.savand.dao.WeatherObjectDao;
 import mteo.savand.dto.WeatherObjectDto;
 
 public interface WeatherObjectStorageService {
@@ -21,7 +21,7 @@ public interface WeatherObjectStorageService {
      * Returns the data source that this WeatherObjectStorageService object represents.
      * @return 
      */
-    WeatherObjectStorageDao getDao();
+    WeatherObjectDao getDao();
     
     
     /**

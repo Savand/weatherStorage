@@ -3,15 +3,15 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package mteo.savand.avro_batch;
+package mteo.savand.avro_generate.batch;
 
 import org.apache.avro.specific.SpecificData;
 
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 4534738154141626574L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"GeoLocationObject\",\"namespace\":\"mteo.savand.avro_batch\",\"fields\":[{\"name\":\"latitude\",\"type\":\"float\"},{\"name\":\"longitude\",\"type\":\"float\"}]}");
+  private static final long serialVersionUID = -8109773365214243192L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"GeoLocationObject\",\"namespace\":\"mteo.savand.avro_generate.batch\",\"fields\":[{\"name\":\"latitude\",\"type\":\"float\"},{\"name\":\"longitude\",\"type\":\"float\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public float latitude;
   @Deprecated public float longitude;
@@ -89,8 +89,8 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
    * Creates a new GeoLocationObject RecordBuilder.
    * @return A new GeoLocationObject RecordBuilder
    */
-  public static mteo.savand.avro_batch.GeoLocationObject.Builder newBuilder() {
-    return new mteo.savand.avro_batch.GeoLocationObject.Builder();
+  public static mteo.savand.avro_generate.batch.GeoLocationObject.Builder newBuilder() {
+    return new mteo.savand.avro_generate.batch.GeoLocationObject.Builder();
   }
 
   /**
@@ -98,8 +98,8 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
    * @param other The existing builder to copy.
    * @return A new GeoLocationObject RecordBuilder
    */
-  public static mteo.savand.avro_batch.GeoLocationObject.Builder newBuilder(mteo.savand.avro_batch.GeoLocationObject.Builder other) {
-    return new mteo.savand.avro_batch.GeoLocationObject.Builder(other);
+  public static mteo.savand.avro_generate.batch.GeoLocationObject.Builder newBuilder(mteo.savand.avro_generate.batch.GeoLocationObject.Builder other) {
+    return new mteo.savand.avro_generate.batch.GeoLocationObject.Builder(other);
   }
 
   /**
@@ -107,8 +107,8 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
    * @param other The existing instance to copy.
    * @return A new GeoLocationObject RecordBuilder
    */
-  public static mteo.savand.avro_batch.GeoLocationObject.Builder newBuilder(mteo.savand.avro_batch.GeoLocationObject other) {
-    return new mteo.savand.avro_batch.GeoLocationObject.Builder(other);
+  public static mteo.savand.avro_generate.batch.GeoLocationObject.Builder newBuilder(mteo.savand.avro_generate.batch.GeoLocationObject other) {
+    return new mteo.savand.avro_generate.batch.GeoLocationObject.Builder(other);
   }
 
   /**
@@ -129,7 +129,7 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(mteo.savand.avro_batch.GeoLocationObject.Builder other) {
+    private Builder(mteo.savand.avro_generate.batch.GeoLocationObject.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.latitude)) {
         this.latitude = data().deepCopy(fields()[0].schema(), other.latitude);
@@ -145,7 +145,7 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
      * Creates a Builder by copying an existing GeoLocationObject instance
      * @param other The existing instance to copy.
      */
-    private Builder(mteo.savand.avro_batch.GeoLocationObject other) {
+    private Builder(mteo.savand.avro_generate.batch.GeoLocationObject other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.latitude)) {
         this.latitude = data().deepCopy(fields()[0].schema(), other.latitude);
@@ -170,7 +170,7 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'latitude'.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.GeoLocationObject.Builder setLatitude(float value) {
+    public mteo.savand.avro_generate.batch.GeoLocationObject.Builder setLatitude(float value) {
       validate(fields()[0], value);
       this.latitude = value;
       fieldSetFlags()[0] = true;
@@ -190,7 +190,7 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
       * Clears the value of the 'latitude' field.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.GeoLocationObject.Builder clearLatitude() {
+    public mteo.savand.avro_generate.batch.GeoLocationObject.Builder clearLatitude() {
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -208,7 +208,7 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'longitude'.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.GeoLocationObject.Builder setLongitude(float value) {
+    public mteo.savand.avro_generate.batch.GeoLocationObject.Builder setLongitude(float value) {
       validate(fields()[1], value);
       this.longitude = value;
       fieldSetFlags()[1] = true;
@@ -228,7 +228,7 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
       * Clears the value of the 'longitude' field.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.GeoLocationObject.Builder clearLongitude() {
+    public mteo.savand.avro_generate.batch.GeoLocationObject.Builder clearLongitude() {
       fieldSetFlags()[1] = false;
       return this;
     }

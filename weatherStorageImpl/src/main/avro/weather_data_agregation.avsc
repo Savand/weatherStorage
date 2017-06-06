@@ -1,0 +1,18 @@
+{
+  "namespace" : "mteo.savand.avro_generate.aggregation",  
+  "type": "record",
+  "name": "WeatherObjectAggregation",
+  
+  "fields" : [
+  	{"name" : "stationId", "type" : "int"},
+  	{"name" : "geoLocationObject", "type" : {"namespace" : "mteo.savand.avro_generate.aggregation", "type" : "record", "name": "GeoLocationObject", "fields" : [
+	  	{"name" : "latitude", "type" : "float"},
+	  	{"name" : "longitude", "type" : "float"}
+	  ]}},
+	{"name": "date", "type" : {"type": "long", "logicalType":"timestamp-millis"}},
+	{"name" : "temperatureAggregateDataInDegreesCelsious", "type" : {"type" :"map", "values" : "float"}},
+	{"name" : "humidityAggregateDataInPercentage", "type" : {"type" :"map", "values" : "float"}},
+	{"name" : "windSpeedAggregateDataInKnots", "type" : {"type" :"map", "values" : "float"}}
+	
+  ]
+}

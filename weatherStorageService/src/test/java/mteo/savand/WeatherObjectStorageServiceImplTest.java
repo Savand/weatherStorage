@@ -10,8 +10,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import mteo.savand.avro_batch.WeatherObject;
-import mteo.savand.dao.WeatherObjectStorageDao;
+import mteo.savand.avro_generate.batch.WeatherObject;
+import mteo.savand.dao.WeatherObjectDao;
 import mteo.savand.dto.WeatherObjectDto;
 import mteo.savand.service.WeatherObjectStorageService;
 import mteo.savand.service.WeatherObjectStorageServiceImpl;
@@ -20,7 +20,7 @@ public class WeatherObjectStorageServiceImplTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(WeatherObjectStorageServiceImplTest.class);
     private WeatherObjectStorageService service;
-    private WeatherObjectStorageDao dao;
+    private WeatherObjectDao dao;
     
     @Before
     public void setUp(){

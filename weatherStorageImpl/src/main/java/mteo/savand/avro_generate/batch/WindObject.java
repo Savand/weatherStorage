@@ -3,18 +3,18 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package mteo.savand.avro_batch;
+package mteo.savand.avro_generate.batch;
 
 import org.apache.avro.specific.SpecificData;
 
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class WindObject extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -1927833033274181587L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"WindObject\",\"namespace\":\"mteo.savand.avro_batch\",\"fields\":[{\"name\":\"windSpeedInKnots\",\"type\":\"int\"},{\"name\":\"direction\",\"type\":{\"type\":\"enum\",\"name\":\"WindDirection\",\"symbols\":[\"N\",\"NNE\",\"NE\",\"ENE\",\"E\",\"ESE\",\"SE\",\"SSE\",\"S\",\"SSW\",\"SW\",\"WSW\",\"W\",\"WNW\",\"NW\",\"NNW\"]}}]}");
+  private static final long serialVersionUID = 6609530093136318612L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"WindObject\",\"namespace\":\"mteo.savand.avro_generate.batch\",\"fields\":[{\"name\":\"windSpeedInKnots\",\"type\":\"int\"},{\"name\":\"direction\",\"type\":{\"type\":\"enum\",\"name\":\"WindDirection\",\"symbols\":[\"N\",\"NNE\",\"NE\",\"ENE\",\"E\",\"ESE\",\"SE\",\"SSE\",\"S\",\"SSW\",\"SW\",\"WSW\",\"W\",\"WNW\",\"NW\",\"NNW\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public int windSpeedInKnots;
-  @Deprecated public mteo.savand.avro_batch.WindDirection direction;
+  @Deprecated public mteo.savand.avro_generate.batch.WindDirection direction;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -28,7 +28,7 @@ public class WindObject extends org.apache.avro.specific.SpecificRecordBase impl
    * @param windSpeedInKnots The new value for windSpeedInKnots
    * @param direction The new value for direction
    */
-  public WindObject(java.lang.Integer windSpeedInKnots, mteo.savand.avro_batch.WindDirection direction) {
+  public WindObject(java.lang.Integer windSpeedInKnots, mteo.savand.avro_generate.batch.WindDirection direction) {
     this.windSpeedInKnots = windSpeedInKnots;
     this.direction = direction;
   }
@@ -48,7 +48,7 @@ public class WindObject extends org.apache.avro.specific.SpecificRecordBase impl
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: windSpeedInKnots = (java.lang.Integer)value$; break;
-    case 1: direction = (mteo.savand.avro_batch.WindDirection)value$; break;
+    case 1: direction = (mteo.savand.avro_generate.batch.WindDirection)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -73,7 +73,7 @@ public class WindObject extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'direction' field.
    * @return The value of the 'direction' field.
    */
-  public mteo.savand.avro_batch.WindDirection getDirection() {
+  public mteo.savand.avro_generate.batch.WindDirection getDirection() {
     return direction;
   }
 
@@ -81,7 +81,7 @@ public class WindObject extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'direction' field.
    * @param value the value to set.
    */
-  public void setDirection(mteo.savand.avro_batch.WindDirection value) {
+  public void setDirection(mteo.savand.avro_generate.batch.WindDirection value) {
     this.direction = value;
   }
 
@@ -89,8 +89,8 @@ public class WindObject extends org.apache.avro.specific.SpecificRecordBase impl
    * Creates a new WindObject RecordBuilder.
    * @return A new WindObject RecordBuilder
    */
-  public static mteo.savand.avro_batch.WindObject.Builder newBuilder() {
-    return new mteo.savand.avro_batch.WindObject.Builder();
+  public static mteo.savand.avro_generate.batch.WindObject.Builder newBuilder() {
+    return new mteo.savand.avro_generate.batch.WindObject.Builder();
   }
 
   /**
@@ -98,8 +98,8 @@ public class WindObject extends org.apache.avro.specific.SpecificRecordBase impl
    * @param other The existing builder to copy.
    * @return A new WindObject RecordBuilder
    */
-  public static mteo.savand.avro_batch.WindObject.Builder newBuilder(mteo.savand.avro_batch.WindObject.Builder other) {
-    return new mteo.savand.avro_batch.WindObject.Builder(other);
+  public static mteo.savand.avro_generate.batch.WindObject.Builder newBuilder(mteo.savand.avro_generate.batch.WindObject.Builder other) {
+    return new mteo.savand.avro_generate.batch.WindObject.Builder(other);
   }
 
   /**
@@ -107,8 +107,8 @@ public class WindObject extends org.apache.avro.specific.SpecificRecordBase impl
    * @param other The existing instance to copy.
    * @return A new WindObject RecordBuilder
    */
-  public static mteo.savand.avro_batch.WindObject.Builder newBuilder(mteo.savand.avro_batch.WindObject other) {
-    return new mteo.savand.avro_batch.WindObject.Builder(other);
+  public static mteo.savand.avro_generate.batch.WindObject.Builder newBuilder(mteo.savand.avro_generate.batch.WindObject other) {
+    return new mteo.savand.avro_generate.batch.WindObject.Builder(other);
   }
 
   /**
@@ -118,7 +118,7 @@ public class WindObject extends org.apache.avro.specific.SpecificRecordBase impl
     implements org.apache.avro.data.RecordBuilder<WindObject> {
 
     private int windSpeedInKnots;
-    private mteo.savand.avro_batch.WindDirection direction;
+    private mteo.savand.avro_generate.batch.WindDirection direction;
 
     /** Creates a new Builder */
     private Builder() {
@@ -129,7 +129,7 @@ public class WindObject extends org.apache.avro.specific.SpecificRecordBase impl
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(mteo.savand.avro_batch.WindObject.Builder other) {
+    private Builder(mteo.savand.avro_generate.batch.WindObject.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.windSpeedInKnots)) {
         this.windSpeedInKnots = data().deepCopy(fields()[0].schema(), other.windSpeedInKnots);
@@ -145,7 +145,7 @@ public class WindObject extends org.apache.avro.specific.SpecificRecordBase impl
      * Creates a Builder by copying an existing WindObject instance
      * @param other The existing instance to copy.
      */
-    private Builder(mteo.savand.avro_batch.WindObject other) {
+    private Builder(mteo.savand.avro_generate.batch.WindObject other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.windSpeedInKnots)) {
         this.windSpeedInKnots = data().deepCopy(fields()[0].schema(), other.windSpeedInKnots);
@@ -170,7 +170,7 @@ public class WindObject extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'windSpeedInKnots'.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.WindObject.Builder setWindSpeedInKnots(int value) {
+    public mteo.savand.avro_generate.batch.WindObject.Builder setWindSpeedInKnots(int value) {
       validate(fields()[0], value);
       this.windSpeedInKnots = value;
       fieldSetFlags()[0] = true;
@@ -190,7 +190,7 @@ public class WindObject extends org.apache.avro.specific.SpecificRecordBase impl
       * Clears the value of the 'windSpeedInKnots' field.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.WindObject.Builder clearWindSpeedInKnots() {
+    public mteo.savand.avro_generate.batch.WindObject.Builder clearWindSpeedInKnots() {
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -199,7 +199,7 @@ public class WindObject extends org.apache.avro.specific.SpecificRecordBase impl
       * Gets the value of the 'direction' field.
       * @return The value.
       */
-    public mteo.savand.avro_batch.WindDirection getDirection() {
+    public mteo.savand.avro_generate.batch.WindDirection getDirection() {
       return direction;
     }
 
@@ -208,7 +208,7 @@ public class WindObject extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'direction'.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.WindObject.Builder setDirection(mteo.savand.avro_batch.WindDirection value) {
+    public mteo.savand.avro_generate.batch.WindObject.Builder setDirection(mteo.savand.avro_generate.batch.WindDirection value) {
       validate(fields()[1], value);
       this.direction = value;
       fieldSetFlags()[1] = true;
@@ -228,7 +228,7 @@ public class WindObject extends org.apache.avro.specific.SpecificRecordBase impl
       * Clears the value of the 'direction' field.
       * @return This builder.
       */
-    public mteo.savand.avro_batch.WindObject.Builder clearDirection() {
+    public mteo.savand.avro_generate.batch.WindObject.Builder clearDirection() {
       direction = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -239,7 +239,7 @@ public class WindObject extends org.apache.avro.specific.SpecificRecordBase impl
       try {
         WindObject record = new WindObject();
         record.windSpeedInKnots = fieldSetFlags()[0] ? this.windSpeedInKnots : (java.lang.Integer) defaultValue(fields()[0]);
-        record.direction = fieldSetFlags()[1] ? this.direction : (mteo.savand.avro_batch.WindDirection) defaultValue(fields()[1]);
+        record.direction = fieldSetFlags()[1] ? this.direction : (mteo.savand.avro_generate.batch.WindDirection) defaultValue(fields()[1]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

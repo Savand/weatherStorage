@@ -5,19 +5,19 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import mteo.savand.avro_batch.WeatherObject;
-import mteo.savand.dao.WeatherObjectStorageDao;
-import mteo.savand.dao.WeatherObjectStorageDaoImpl;
+import mteo.savand.avro_generate.batch.WeatherObject;
+import mteo.savand.dao.WeatherObjectDao;
+import mteo.savand.dao.WeatherObjectDaoImpl;
 import mteo.savand.dto.WeatherObjectDto;
 import mteo.savand.util.WeatherObjectFactory;
 
 public class WeatherObjectStorageServiceImpl implements WeatherObjectStorageService{
 
-    private WeatherObjectStorageDao dao;
+    private WeatherObjectDao dao;
     private List<WeatherObject> aggregationDataList;
     
     public WeatherObjectStorageServiceImpl(File batchFile, File aggregationFile) {
-        dao = new WeatherObjectStorageDaoImpl(batchFile);
+        dao = new WeatherObjectDaoImpl(batchFile);
         aggregationDataList = new LinkedList<>();
     }
 
@@ -29,7 +29,7 @@ public class WeatherObjectStorageServiceImpl implements WeatherObjectStorageServ
     }
 
     @Override
-    public WeatherObjectStorageDao getDao() {
+    public WeatherObjectDao getDao() {
         return dao;
     }
 
