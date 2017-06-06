@@ -11,21 +11,22 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import mteo.savand.avro_generate.batch.WeatherObject;
-import mteo.savand.dao.WeatherObjectDao;
+import mteo.savand.dao.WeatherObjectBatchDao;
 import mteo.savand.dto.WeatherObjectDto;
-import mteo.savand.service.WeatherObjectStorageService;
-import mteo.savand.service.WeatherObjectStorageServiceImpl;
+import mteo.savand.service.WeatherObjectService;
+import mteo.savand.service.WeatherObjectServiceImpl;
 
 public class WeatherObjectStorageServiceImplTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(WeatherObjectStorageServiceImplTest.class);
-    private WeatherObjectStorageService service;
-    private WeatherObjectDao dao;
+    private static final String BATCH_FILE_NAME = "d://testBatchService.avro";
+    private WeatherObjectService service;
+    private WeatherObjectBatchDao<WeatherObject> daoBatch;
     
     @Before
     public void setUp(){
-        service = new WeatherObjectStorageServiceImpl(new File("testBatchWeatherData.avro"), new File("testAggregateWeatherData.avro"));
-        dao = service.getDao();
+        service = new WeatherObjectServiceImpl(new File(BATCH_FILE_NAME));
+        daoBatch = service.getDaoBatch();
     }
     
     @Test
@@ -46,11 +47,11 @@ public class WeatherObjectStorageServiceImplTest {
         service.store(weatherObjectDto);  
         weatherObjectDto.setStationId(44);
         service.store(weatherObjectDto);                      
-        List<WeatherObject> read = dao.read();   
+        List<WeatherObject> read = daoBatch.read();   
         LOG.debug(read.toString());
         weatherObjectDto.setStationId(66);
         service.store(weatherObjectDto);      
-        List<WeatherObject> read2 = dao.read();  
+        List<WeatherObject> read2 = daoBatch.read();  
         LOG.debug(read2.toString());
     }
 

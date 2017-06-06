@@ -20,23 +20,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import mteo.savand.dto.WeatherObjectDto;
-import mteo.savand.service.WeatherObjectStorageService;
-import mteo.savand.service.WeatherObjectStorageServiceImpl;
+import mteo.savand.service.WeatherObjectService;
+import mteo.savand.service.WeatherObjectServiceImpl;
 import mteo.savand.web.util.ObservationErrorMessageDto;
 
 @RestController
 @RequestMapping("/rest/weather")
-public class WeatherStorageController {
+public class WeatherBatchStorageController {
 
-    private static final Logger LOG = LoggerFactory.getLogger(WeatherStorageController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(WeatherBatchStorageController.class);
     
-    private WeatherObjectStorageService service;
+    private WeatherObjectService service;
     
-    
-    public WeatherStorageController() {
-        service = new WeatherObjectStorageServiceImpl(new File("restWeatherData.avro"), new File("restAggregationData.avro"));
+
+    public WeatherBatchStorageController() {
+        service = new WeatherObjectServiceImpl(new File("restWeatherData.avro"));
     }
-
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> store(@Valid @RequestBody WeatherObjectDto weatherObjectDto, Errors errors){
@@ -65,4 +64,6 @@ public class WeatherStorageController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
         
     }
+    
+
 }
