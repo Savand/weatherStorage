@@ -30,8 +30,8 @@ public class WeatherAggregationSchedulerImpl implements WeatherAggregationSchedu
 
 
     @Override
-    // @Scheduled(cron="0 0 * * * ?") //each hour
-    @Scheduled(cron = "*/30 * * * * ?") //each 30 sec
+//     @Scheduled(cron="0 0 * * * *") //each hour
+    @Scheduled(cron = "*/30 * * * * *") //each 30 sec
     public void executeAggregation() {
         List<WeatherObject> dataFromCache = WeatherObjectCache.getDataAndClearCache();
 

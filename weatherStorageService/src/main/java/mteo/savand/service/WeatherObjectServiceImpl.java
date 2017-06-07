@@ -28,10 +28,10 @@ public class WeatherObjectServiceImpl implements WeatherObjectService{
 
     @Override
     public void store(WeatherObjectDto weatherObjectDto) throws IOException {
-        LOG.debug("call dao to store weather object");
         WeatherObject weatherObject = WeatherObjectFactory.convertToWeatherObject(weatherObjectDto);
+        LOG.debug("dao.store(weatherObject) invocation");
         daoBatch.store(weatherObject);
-        LOG.debug("store weather object to the cache");
+        LOG.debug("WeatherObjectCache.add(weatherObject) invocation");
         WeatherObjectCache.add(weatherObject);
     }
 
