@@ -6,7 +6,7 @@
     <artifactId>weatherStorage</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>weatherStorageImpl</artifactId>
+  <artifactId>weatherStorageRepository</artifactId>
 
 
   <properties>

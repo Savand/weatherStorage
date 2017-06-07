@@ -10,15 +10,15 @@ import org.apache.avro.specific.SpecificData;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class WeatherObjectAggregation extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 7226245495832542334L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"WeatherObjectAggregation\",\"namespace\":\"mteo.savand.avro_generate.aggregation\",\"fields\":[{\"name\":\"stationId\",\"type\":\"int\"},{\"name\":\"geoLocationObject\",\"type\":{\"type\":\"record\",\"name\":\"GeoLocationObject\",\"fields\":[{\"name\":\"latitude\",\"type\":\"float\"},{\"name\":\"longitude\",\"type\":\"float\"}]}},{\"name\":\"date\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"temperatureAggregateDataInDegreesCelsious\",\"type\":{\"type\":\"map\",\"values\":\"float\"}},{\"name\":\"humidityAggregateDataInPercentage\",\"type\":{\"type\":\"map\",\"values\":\"float\"}},{\"name\":\"windSpeedAggregateDataInKnots\",\"type\":{\"type\":\"map\",\"values\":\"float\"}}]}");
+  private static final long serialVersionUID = -1358865167766495295L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"WeatherObjectAggregation\",\"namespace\":\"mteo.savand.avro_generate.aggregation\",\"fields\":[{\"name\":\"stationId\",\"type\":\"int\"},{\"name\":\"geoLocationObject\",\"type\":{\"type\":\"record\",\"name\":\"GeoLocationObject\",\"fields\":[{\"name\":\"latitude\",\"type\":\"float\"},{\"name\":\"longitude\",\"type\":\"float\"}]}},{\"name\":\"date\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"temperatureAggregateDataInDegreesCelsious\",\"type\":{\"type\":\"array\",\"items\":\"float\"}},{\"name\":\"humidityAggregateDataInPercentage\",\"type\":{\"type\":\"array\",\"items\":\"float\"}},{\"name\":\"windSpeedAggregateDataInKnots\",\"type\":{\"type\":\"array\",\"items\":\"float\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public int stationId;
   @Deprecated public mteo.savand.avro_generate.aggregation.GeoLocationObject geoLocationObject;
   @Deprecated public org.joda.time.DateTime date;
-  @Deprecated public java.util.Map<java.lang.CharSequence,java.lang.Float> temperatureAggregateDataInDegreesCelsious;
-  @Deprecated public java.util.Map<java.lang.CharSequence,java.lang.Float> humidityAggregateDataInPercentage;
-  @Deprecated public java.util.Map<java.lang.CharSequence,java.lang.Float> windSpeedAggregateDataInKnots;
+  @Deprecated public java.util.List<java.lang.Float> temperatureAggregateDataInDegreesCelsious;
+  @Deprecated public java.util.List<java.lang.Float> humidityAggregateDataInPercentage;
+  @Deprecated public java.util.List<java.lang.Float> windSpeedAggregateDataInKnots;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -36,7 +36,7 @@ public class WeatherObjectAggregation extends org.apache.avro.specific.SpecificR
    * @param humidityAggregateDataInPercentage The new value for humidityAggregateDataInPercentage
    * @param windSpeedAggregateDataInKnots The new value for windSpeedAggregateDataInKnots
    */
-  public WeatherObjectAggregation(java.lang.Integer stationId, mteo.savand.avro_generate.aggregation.GeoLocationObject geoLocationObject, org.joda.time.DateTime date, java.util.Map<java.lang.CharSequence,java.lang.Float> temperatureAggregateDataInDegreesCelsious, java.util.Map<java.lang.CharSequence,java.lang.Float> humidityAggregateDataInPercentage, java.util.Map<java.lang.CharSequence,java.lang.Float> windSpeedAggregateDataInKnots) {
+  public WeatherObjectAggregation(java.lang.Integer stationId, mteo.savand.avro_generate.aggregation.GeoLocationObject geoLocationObject, org.joda.time.DateTime date, java.util.List<java.lang.Float> temperatureAggregateDataInDegreesCelsious, java.util.List<java.lang.Float> humidityAggregateDataInPercentage, java.util.List<java.lang.Float> windSpeedAggregateDataInKnots) {
     this.stationId = stationId;
     this.geoLocationObject = geoLocationObject;
     this.date = date;
@@ -86,9 +86,9 @@ public class WeatherObjectAggregation extends org.apache.avro.specific.SpecificR
     case 0: stationId = (java.lang.Integer)value$; break;
     case 1: geoLocationObject = (mteo.savand.avro_generate.aggregation.GeoLocationObject)value$; break;
     case 2: date = (org.joda.time.DateTime)value$; break;
-    case 3: temperatureAggregateDataInDegreesCelsious = (java.util.Map<java.lang.CharSequence,java.lang.Float>)value$; break;
-    case 4: humidityAggregateDataInPercentage = (java.util.Map<java.lang.CharSequence,java.lang.Float>)value$; break;
-    case 5: windSpeedAggregateDataInKnots = (java.util.Map<java.lang.CharSequence,java.lang.Float>)value$; break;
+    case 3: temperatureAggregateDataInDegreesCelsious = (java.util.List<java.lang.Float>)value$; break;
+    case 4: humidityAggregateDataInPercentage = (java.util.List<java.lang.Float>)value$; break;
+    case 5: windSpeedAggregateDataInKnots = (java.util.List<java.lang.Float>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -145,7 +145,7 @@ public class WeatherObjectAggregation extends org.apache.avro.specific.SpecificR
    * Gets the value of the 'temperatureAggregateDataInDegreesCelsious' field.
    * @return The value of the 'temperatureAggregateDataInDegreesCelsious' field.
    */
-  public java.util.Map<java.lang.CharSequence,java.lang.Float> getTemperatureAggregateDataInDegreesCelsious() {
+  public java.util.List<java.lang.Float> getTemperatureAggregateDataInDegreesCelsious() {
     return temperatureAggregateDataInDegreesCelsious;
   }
 
@@ -153,7 +153,7 @@ public class WeatherObjectAggregation extends org.apache.avro.specific.SpecificR
    * Sets the value of the 'temperatureAggregateDataInDegreesCelsious' field.
    * @param value the value to set.
    */
-  public void setTemperatureAggregateDataInDegreesCelsious(java.util.Map<java.lang.CharSequence,java.lang.Float> value) {
+  public void setTemperatureAggregateDataInDegreesCelsious(java.util.List<java.lang.Float> value) {
     this.temperatureAggregateDataInDegreesCelsious = value;
   }
 
@@ -161,7 +161,7 @@ public class WeatherObjectAggregation extends org.apache.avro.specific.SpecificR
    * Gets the value of the 'humidityAggregateDataInPercentage' field.
    * @return The value of the 'humidityAggregateDataInPercentage' field.
    */
-  public java.util.Map<java.lang.CharSequence,java.lang.Float> getHumidityAggregateDataInPercentage() {
+  public java.util.List<java.lang.Float> getHumidityAggregateDataInPercentage() {
     return humidityAggregateDataInPercentage;
   }
 
@@ -169,7 +169,7 @@ public class WeatherObjectAggregation extends org.apache.avro.specific.SpecificR
    * Sets the value of the 'humidityAggregateDataInPercentage' field.
    * @param value the value to set.
    */
-  public void setHumidityAggregateDataInPercentage(java.util.Map<java.lang.CharSequence,java.lang.Float> value) {
+  public void setHumidityAggregateDataInPercentage(java.util.List<java.lang.Float> value) {
     this.humidityAggregateDataInPercentage = value;
   }
 
@@ -177,7 +177,7 @@ public class WeatherObjectAggregation extends org.apache.avro.specific.SpecificR
    * Gets the value of the 'windSpeedAggregateDataInKnots' field.
    * @return The value of the 'windSpeedAggregateDataInKnots' field.
    */
-  public java.util.Map<java.lang.CharSequence,java.lang.Float> getWindSpeedAggregateDataInKnots() {
+  public java.util.List<java.lang.Float> getWindSpeedAggregateDataInKnots() {
     return windSpeedAggregateDataInKnots;
   }
 
@@ -185,7 +185,7 @@ public class WeatherObjectAggregation extends org.apache.avro.specific.SpecificR
    * Sets the value of the 'windSpeedAggregateDataInKnots' field.
    * @param value the value to set.
    */
-  public void setWindSpeedAggregateDataInKnots(java.util.Map<java.lang.CharSequence,java.lang.Float> value) {
+  public void setWindSpeedAggregateDataInKnots(java.util.List<java.lang.Float> value) {
     this.windSpeedAggregateDataInKnots = value;
   }
 
@@ -225,9 +225,9 @@ public class WeatherObjectAggregation extends org.apache.avro.specific.SpecificR
     private mteo.savand.avro_generate.aggregation.GeoLocationObject geoLocationObject;
     private mteo.savand.avro_generate.aggregation.GeoLocationObject.Builder geoLocationObjectBuilder;
     private org.joda.time.DateTime date;
-    private java.util.Map<java.lang.CharSequence,java.lang.Float> temperatureAggregateDataInDegreesCelsious;
-    private java.util.Map<java.lang.CharSequence,java.lang.Float> humidityAggregateDataInPercentage;
-    private java.util.Map<java.lang.CharSequence,java.lang.Float> windSpeedAggregateDataInKnots;
+    private java.util.List<java.lang.Float> temperatureAggregateDataInDegreesCelsious;
+    private java.util.List<java.lang.Float> humidityAggregateDataInPercentage;
+    private java.util.List<java.lang.Float> windSpeedAggregateDataInKnots;
 
     /** Creates a new Builder */
     private Builder() {
@@ -456,7 +456,7 @@ public class WeatherObjectAggregation extends org.apache.avro.specific.SpecificR
       * Gets the value of the 'temperatureAggregateDataInDegreesCelsious' field.
       * @return The value.
       */
-    public java.util.Map<java.lang.CharSequence,java.lang.Float> getTemperatureAggregateDataInDegreesCelsious() {
+    public java.util.List<java.lang.Float> getTemperatureAggregateDataInDegreesCelsious() {
       return temperatureAggregateDataInDegreesCelsious;
     }
 
@@ -465,7 +465,7 @@ public class WeatherObjectAggregation extends org.apache.avro.specific.SpecificR
       * @param value The value of 'temperatureAggregateDataInDegreesCelsious'.
       * @return This builder.
       */
-    public mteo.savand.avro_generate.aggregation.WeatherObjectAggregation.Builder setTemperatureAggregateDataInDegreesCelsious(java.util.Map<java.lang.CharSequence,java.lang.Float> value) {
+    public mteo.savand.avro_generate.aggregation.WeatherObjectAggregation.Builder setTemperatureAggregateDataInDegreesCelsious(java.util.List<java.lang.Float> value) {
       validate(fields()[3], value);
       this.temperatureAggregateDataInDegreesCelsious = value;
       fieldSetFlags()[3] = true;
@@ -495,7 +495,7 @@ public class WeatherObjectAggregation extends org.apache.avro.specific.SpecificR
       * Gets the value of the 'humidityAggregateDataInPercentage' field.
       * @return The value.
       */
-    public java.util.Map<java.lang.CharSequence,java.lang.Float> getHumidityAggregateDataInPercentage() {
+    public java.util.List<java.lang.Float> getHumidityAggregateDataInPercentage() {
       return humidityAggregateDataInPercentage;
     }
 
@@ -504,7 +504,7 @@ public class WeatherObjectAggregation extends org.apache.avro.specific.SpecificR
       * @param value The value of 'humidityAggregateDataInPercentage'.
       * @return This builder.
       */
-    public mteo.savand.avro_generate.aggregation.WeatherObjectAggregation.Builder setHumidityAggregateDataInPercentage(java.util.Map<java.lang.CharSequence,java.lang.Float> value) {
+    public mteo.savand.avro_generate.aggregation.WeatherObjectAggregation.Builder setHumidityAggregateDataInPercentage(java.util.List<java.lang.Float> value) {
       validate(fields()[4], value);
       this.humidityAggregateDataInPercentage = value;
       fieldSetFlags()[4] = true;
@@ -534,7 +534,7 @@ public class WeatherObjectAggregation extends org.apache.avro.specific.SpecificR
       * Gets the value of the 'windSpeedAggregateDataInKnots' field.
       * @return The value.
       */
-    public java.util.Map<java.lang.CharSequence,java.lang.Float> getWindSpeedAggregateDataInKnots() {
+    public java.util.List<java.lang.Float> getWindSpeedAggregateDataInKnots() {
       return windSpeedAggregateDataInKnots;
     }
 
@@ -543,7 +543,7 @@ public class WeatherObjectAggregation extends org.apache.avro.specific.SpecificR
       * @param value The value of 'windSpeedAggregateDataInKnots'.
       * @return This builder.
       */
-    public mteo.savand.avro_generate.aggregation.WeatherObjectAggregation.Builder setWindSpeedAggregateDataInKnots(java.util.Map<java.lang.CharSequence,java.lang.Float> value) {
+    public mteo.savand.avro_generate.aggregation.WeatherObjectAggregation.Builder setWindSpeedAggregateDataInKnots(java.util.List<java.lang.Float> value) {
       validate(fields()[5], value);
       this.windSpeedAggregateDataInKnots = value;
       fieldSetFlags()[5] = true;
@@ -580,9 +580,9 @@ public class WeatherObjectAggregation extends org.apache.avro.specific.SpecificR
           record.geoLocationObject = fieldSetFlags()[1] ? this.geoLocationObject : (mteo.savand.avro_generate.aggregation.GeoLocationObject) defaultValue(fields()[1]);
         }
         record.date = fieldSetFlags()[2] ? this.date : (org.joda.time.DateTime) defaultValue(fields()[2]);
-        record.temperatureAggregateDataInDegreesCelsious = fieldSetFlags()[3] ? this.temperatureAggregateDataInDegreesCelsious : (java.util.Map<java.lang.CharSequence,java.lang.Float>) defaultValue(fields()[3]);
-        record.humidityAggregateDataInPercentage = fieldSetFlags()[4] ? this.humidityAggregateDataInPercentage : (java.util.Map<java.lang.CharSequence,java.lang.Float>) defaultValue(fields()[4]);
-        record.windSpeedAggregateDataInKnots = fieldSetFlags()[5] ? this.windSpeedAggregateDataInKnots : (java.util.Map<java.lang.CharSequence,java.lang.Float>) defaultValue(fields()[5]);
+        record.temperatureAggregateDataInDegreesCelsious = fieldSetFlags()[3] ? this.temperatureAggregateDataInDegreesCelsious : (java.util.List<java.lang.Float>) defaultValue(fields()[3]);
+        record.humidityAggregateDataInPercentage = fieldSetFlags()[4] ? this.humidityAggregateDataInPercentage : (java.util.List<java.lang.Float>) defaultValue(fields()[4]);
+        record.windSpeedAggregateDataInKnots = fieldSetFlags()[5] ? this.windSpeedAggregateDataInKnots : (java.util.List<java.lang.Float>) defaultValue(fields()[5]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

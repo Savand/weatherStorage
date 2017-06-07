@@ -61,17 +61,8 @@ public class WeatherObjectDaoImplTest {
     @Test
     public void testStoreIntoAggregate() throws IOException {
 
-        Map<CharSequence, Float> aggrHumidity = new HashMap<>();
 
-        aggrHumidity.put("max%", 66.5f);
-        aggrHumidity.put("min%", 34.4f);
-        aggrHumidity.put("avg%", 47.7f);
 
-        Map<CharSequence, Float> aggrTemperature = new HashMap<>();
-
-        aggrTemperature.put("maxCelsium", 28f);
-        aggrTemperature.put("minCelsium", 21f);
-        aggrTemperature.put("avgCelsium", 26f);
 
         Map<CharSequence, Float> aggrWindSpeed = new HashMap<>();
 
@@ -84,34 +75,18 @@ public class WeatherObjectDaoImplTest {
                 .setDate(DateTime.now())
                 .setGeoLocationObjectBuilder(mteo.savand.avro_generate.aggregation.GeoLocationObject
                         .newBuilder().setLatitude(22.2f).setLongitude(11.2f))
-                .setStationId(77).setHumidityAggregateDataInPercentage(aggrHumidity)
-                .setTemperatureAggregateDataInDegreesCelsious(aggrTemperature)
-                .setWindSpeedAggregateDataInKnots(aggrWindSpeed).build();
+                .setStationId(77).setHumidityAggregateDataInPercentage(Arrays.asList(34.4f, 66.5f, 47.7f))
+                .setTemperatureAggregateDataInDegreesCelsious(Arrays.asList(21.4f, 28f, 26f))
+                .setWindSpeedAggregateDataInKnots(Arrays.asList(3f, 9.5f, 5.5f)).build();
         
-        Map<CharSequence, Float> aggrHumidity1 = new HashMap<>();
-        aggrHumidity1.put("maxKnots", 11f);
-        aggrHumidity1.put("minKnots", 5f);
-        aggrHumidity1.put("avgKnots", 4f);
-        
-        Map<CharSequence, Float> aggrTemperature1 = new HashMap<>();
-        
-        aggrTemperature1.put("maxCelsium", 22f);
-        aggrTemperature1.put("minCelsium", 10f);
-        aggrTemperature1.put("avgCelsium", 13f);
-        
-        Map<CharSequence, Float> aggrWindSpeed1 = new HashMap<>();
-        
-        aggrWindSpeed1.put("max%", 77.5f);
-        aggrWindSpeed1.put("min%", 50.4f);
-        aggrWindSpeed1.put("avg%", 47.7f);
 
         WeatherObjectAggregation weatherObjectAggr1 = WeatherObjectAggregation.newBuilder()
                 .setDate(DateTime.now())
                 .setGeoLocationObjectBuilder(mteo.savand.avro_generate.aggregation.GeoLocationObject
                         .newBuilder().setLatitude(22.2f).setLongitude(11.2f))
-                .setStationId(99).setHumidityAggregateDataInPercentage(aggrHumidity1)
-                .setTemperatureAggregateDataInDegreesCelsious(aggrTemperature1)
-                .setWindSpeedAggregateDataInKnots(aggrWindSpeed1).build();
+                .setStationId(77).setHumidityAggregateDataInPercentage(Arrays.asList(22.4f, 44.5f, 33.7f))
+                .setTemperatureAggregateDataInDegreesCelsious(Arrays.asList(25.4f, 32f, 29f))
+                .setWindSpeedAggregateDataInKnots(Arrays.asList(5f, 8f, 6f)).build();
 
         List<WeatherObjectAggregation> weatherObjectAggregationList = Arrays.asList(weatherObjectAggr, weatherObjectAggr1);
         

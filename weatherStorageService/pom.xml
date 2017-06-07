@@ -9,7 +9,7 @@
   <dependencies>
     <dependency>
       <groupId>mteo.savand</groupId>
-      <artifactId>weatherStorageImpl</artifactId>
+      <artifactId>weatherStorageRepository</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>

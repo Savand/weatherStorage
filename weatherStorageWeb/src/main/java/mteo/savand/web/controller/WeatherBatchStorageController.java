@@ -22,18 +22,19 @@ import org.springframework.web.bind.annotation.RestController;
 import mteo.savand.dto.WeatherObjectDto;
 import mteo.savand.service.WeatherObjectService;
 import mteo.savand.service.WeatherObjectServiceImpl;
-import mteo.savand.web.util.ObservationErrorMessageDto;
+import mteo.savand.web.util.WeatherObservationErrorMessageDto;
 
 @RestController
 @RequestMapping("/rest/weather")
 public class WeatherBatchStorageController {
 
     private static final Logger LOG = LoggerFactory.getLogger(WeatherBatchStorageController.class);
+    private static final String BATCH_FILE_NAME = "d://batchData_web.avro";
 
     private WeatherObjectService service;
 
     public WeatherBatchStorageController() {
-        service = new WeatherObjectServiceImpl(new File("restWeatherData.avro"));
+        service = new WeatherObjectServiceImpl(new File(BATCH_FILE_NAME));
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -45,8 +46,8 @@ public class WeatherBatchStorageController {
             // get all errors
             List<FieldError> fieldErrors = errors.getFieldErrors();
 
-            List<ObservationErrorMessageDto> dtoErrors = fieldErrors.stream().map(fieldError -> {
-                return new ObservationErrorMessageDto(fieldError.getField(),
+            List<WeatherObservationErrorMessageDto> dtoErrors = fieldErrors.stream().map(fieldError -> {
+                return new WeatherObservationErrorMessageDto(fieldError.getField(),
                         fieldError.getDefaultMessage());
             }).collect(Collectors.toList());
 

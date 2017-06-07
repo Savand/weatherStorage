@@ -10,9 +10,9 @@
 	  	{"name" : "longitude", "type" : "float"}
 	  ]}},
 	{"name": "date", "type" : {"type": "long", "logicalType":"timestamp-millis"}},
-	{"name" : "temperatureAggregateDataInDegreesCelsious", "type" : {"type" :"map", "values" : "float"}},
-	{"name" : "humidityAggregateDataInPercentage", "type" : {"type" :"map", "values" : "float"}},
-	{"name" : "windSpeedAggregateDataInKnots", "type" : {"type" :"map", "values" : "float"}}
+	{"name" : "temperatureAggregateDataInDegreesCelsious", "type" : {"type" :"array", "items" : "float"}},
+	{"name" : "humidityAggregateDataInPercentage", "type" : {"type" :"array", "items" : "float"}},
+	{"name" : "windSpeedAggregateDataInKnots", "type" : {"type" :"array", "items" : "float"}}
 	
   ]
 }
