@@ -1,0 +1,8 @@
+Develop Java RESTful API that responds to request to store multiple weather
+observations (including weather station id, geo location and current
+observations like wind speed in knots, temperature in degrees celsius, etc.)
+in parquet or avro format aggregated hourly and in a batch of at least X
+items. Respond with error details for items failed validation. Ensure strong
+separation between core and infrastructure code. Do you best to provide best
+possible code maintainability and testability within reasonable period of
+1-3 days.
