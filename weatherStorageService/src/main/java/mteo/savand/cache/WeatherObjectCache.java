@@ -13,7 +13,7 @@ public final class WeatherObjectCache{
     
     private static final Logger LOG = LoggerFactory.getLogger(WeatherObjectCache.class);
 
-    private static List<WeatherObject> syncronizedDataList = startNewCache();
+    private static List<WeatherObject> syncronizedDataList;
 
     private WeatherObjectCache() {}
 
@@ -23,15 +23,23 @@ public final class WeatherObjectCache{
     }
     
     public static void add(WeatherObject obj){
+        if(syncronizedDataList == null){
+            syncronizedDataList = startNewCache();
+        }
+        
         syncronizedDataList.add(obj);
     }
     
     /**
-     * fetches data for aggregation and clears cache
+     * get cached data and clears cache
      * 
      * @return
      */
-    public static List<WeatherObject> getAndClearCurrentWeatherDataCache() {
+    public static List<WeatherObject> getDataAndClearCache() {
+        if(syncronizedDataList == null || syncronizedDataList.isEmpty()){
+            return null;
+        }
+        
         List<WeatherObject> resultList = new LinkedList<>();
         
         synchronized(syncronizedDataList){

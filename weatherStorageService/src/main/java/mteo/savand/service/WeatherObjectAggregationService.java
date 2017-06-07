@@ -15,9 +15,9 @@ public interface WeatherObjectAggregationService {
     WeatherObjectAggregationDao<WeatherObjectAggregation> getAggregationDao();
     
     /**
-     * Stores data to the batch file and to the caching object for further data aggregation
-     * @param weatherObjectDto
+     * Stores data to the aggregated data file
+     * @param weatherAggregatedObjects
      * @throws IOException
      */
-    List<WeatherObjectAggregation> aggregateAndStoreCurrentBatch();
+    boolean storeWeatherObjectAggregationList(List<WeatherObjectAggregation> weatherAggregatedObjects);
 }

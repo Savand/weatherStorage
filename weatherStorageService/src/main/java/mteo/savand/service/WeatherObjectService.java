@@ -9,7 +9,7 @@ import mteo.savand.dto.WeatherObjectDto;
 public interface WeatherObjectService {
     
     /**
-     * Stores data to the batch file and to the caching object for further data aggregation
+     * Store data to the file and to the caching object
      * @param weatherObjectDto
      * @throws IOException
      */
@@ -17,7 +17,7 @@ public interface WeatherObjectService {
     
     
     /**
-     * get dao to access the file with batch data
+     * get dao to access the file
      * @return
      */
     WeatherObjectBatchDao<WeatherObject> getDaoBatch();

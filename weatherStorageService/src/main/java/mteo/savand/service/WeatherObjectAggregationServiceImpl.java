@@ -8,11 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import mteo.savand.avro_generate.aggregation.WeatherObjectAggregation;
-import mteo.savand.avro_generate.batch.WeatherObject;
-import mteo.savand.cache.WeatherObjectCache;
 import mteo.savand.dao.WeatherObjectAggregationDao;
 import mteo.savand.dao.WeatherObjectAggregationDaoImpl;
-import mteo.savand.util.WeatherDataAggregatorUtil;
 
 public class WeatherObjectAggregationServiceImpl implements WeatherObjectAggregationService {
     
@@ -30,8 +27,10 @@ public class WeatherObjectAggregationServiceImpl implements WeatherObjectAggrega
     public WeatherObjectAggregationDao<WeatherObjectAggregation> getAggregationDao() {
         return daoAggregation;
     }
-
-    private boolean storeAggregatedList(List<WeatherObjectAggregation> weatherObjects) {
+    
+    @Override
+    public boolean storeWeatherObjectAggregationList(List<WeatherObjectAggregation> weatherObjects) {
+        
         try {
             daoAggregation.store(weatherObjects);
         } catch (IOException e) {
@@ -41,24 +40,7 @@ public class WeatherObjectAggregationServiceImpl implements WeatherObjectAggrega
         
         return true;
     }
-    
-    @Override
-    public List<WeatherObjectAggregation> aggregateAndStoreCurrentBatch() {
-        LOG.debug("aggregating data from cache");
-        List<WeatherObject> dataFromCache = WeatherObjectCache.getAndClearCurrentWeatherDataCache();
-        
-        List<WeatherObjectAggregation> aggregatedWeatherobjects =
-                getAggregatedWeatherObjects(dataFromCache);
-        
-        storeAggregatedList(aggregatedWeatherobjects);
-        
-        return aggregatedWeatherobjects;
-    }
 
-    private List<WeatherObjectAggregation> getAggregatedWeatherObjects(
-            List<WeatherObject> dataFromCache) {
-        return WeatherDataAggregatorUtil.getAggregatedDataGroupedyStatinId(dataFromCache);
-    }
 
     
 }

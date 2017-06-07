@@ -29,30 +29,31 @@ import mteo.savand.web.util.ObservationErrorMessageDto;
 public class WeatherBatchStorageController {
 
     private static final Logger LOG = LoggerFactory.getLogger(WeatherBatchStorageController.class);
-    
+
     private WeatherObjectService service;
-    
 
     public WeatherBatchStorageController() {
         service = new WeatherObjectServiceImpl(new File("restWeatherData.avro"));
     }
 
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> store(@Valid @RequestBody WeatherObjectDto weatherObjectDto, Errors errors){
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> store(@Valid @RequestBody WeatherObjectDto weatherObjectDto,
+            Errors errors) {
         LOG.debug("Validating object that came to controller");
         if (errors.hasErrors()) {
             // get all errors
             List<FieldError> fieldErrors = errors.getFieldErrors();
-            
-            List<ObservationErrorMessageDto> dtoErrors = fieldErrors.stream()
-            .map(fieldError -> {
-               return new ObservationErrorMessageDto(fieldError.getField(), fieldError.getDefaultMessage());
+
+            List<ObservationErrorMessageDto> dtoErrors = fieldErrors.stream().map(fieldError -> {
+                return new ObservationErrorMessageDto(fieldError.getField(),
+                        fieldError.getDefaultMessage());
             }).collect(Collectors.toList());
-            
+
             LOG.debug(fieldErrors.toString());
             return ResponseEntity.badRequest().body(dtoErrors);
         }
-        
+
         LOG.debug("store triggered in controller");
         try {
             service.store(weatherObjectDto);
@@ -60,10 +61,10 @@ public class WeatherBatchStorageController {
             LOG.error("IO exception with the next content " + e);
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         }
-        
+
         return ResponseEntity.status(HttpStatus.CREATED).build();
-        
+
     }
-    
+
 
 }
