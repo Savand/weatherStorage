@@ -1,6 +1,5 @@
 package mteo.savand.dao;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -11,9 +10,8 @@ public class WeatherObjectAggregationDaoImpl extends AbstractAvroDao<WeatherObje
         implements WeatherObjectAggregationDao<WeatherObjectAggregation> {
 
 
-    public WeatherObjectAggregationDaoImpl(File file,
-            Class<WeatherObjectAggregation> typeParameterClass) {
-        super(file, typeParameterClass);
+    public WeatherObjectAggregationDaoImpl() {
+        super(WeatherObjectAggregation.class);
     }
 
     @Override
@@ -23,7 +21,7 @@ public class WeatherObjectAggregationDaoImpl extends AbstractAvroDao<WeatherObje
             try {
                 store(item);
             } catch (IOException e) {
-                LOG.error(e.getStackTrace().toString());
+                LOG.error("IOException while storing aggregated objects", e);
             }
         });
 

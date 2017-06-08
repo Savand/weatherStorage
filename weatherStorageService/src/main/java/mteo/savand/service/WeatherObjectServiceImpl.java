@@ -1,6 +1,5 @@
 package mteo.savand.service;
 
-import java.io.File;
 import java.io.IOException;
 
 import org.slf4j.Logger;
@@ -20,18 +19,18 @@ public class WeatherObjectServiceImpl implements WeatherObjectService{
     private WeatherObjectBatchDao<WeatherObject> daoBatch;
 
     
-    public WeatherObjectServiceImpl(File batchFile) {
-        LOG.debug("constructing WeatherObjectStorageServiceImpl...");
-        daoBatch = new WeatherObjectDaoBatchImpl(batchFile,  WeatherObject.class);
+    public WeatherObjectServiceImpl() {
+        LOG.trace("constructing WeatherObjectStorageServiceImpl...");
+        daoBatch = new WeatherObjectDaoBatchImpl();
     }
 
 
     @Override
     public void store(WeatherObjectDto weatherObjectDto) throws IOException {
         WeatherObject weatherObject = WeatherObjectFactory.convertToWeatherObject(weatherObjectDto);
-        LOG.debug("dao.store(weatherObject) invocation");
+        LOG.trace("dao.store(weatherObject) invocation");
         daoBatch.store(weatherObject);
-        LOG.debug("WeatherObjectCache.add(weatherObject) invocation");
+        LOG.trace("WeatherObjectCache.add(weatherObject) invocation");
         WeatherObjectCache.add(weatherObject);
     }
 
@@ -39,7 +38,5 @@ public class WeatherObjectServiceImpl implements WeatherObjectService{
     public WeatherObjectBatchDao<WeatherObject> getDaoBatch() {
         return daoBatch;
     }
-
-
 
 }

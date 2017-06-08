@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import mteo.savand.dto.WeatherObjectDto;
-import mteo.savand.web.usecase.ErrorsTranslator;
+import mteo.savand.web.controller.error_handler.ErrorsTranslator;
 import mteo.savand.web.usecase.StorageBatchUseCase;
 
 @Scope("request")
@@ -35,13 +35,13 @@ public class WeatherBatchStorageController {
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> store(@Valid @RequestBody WeatherObjectDto weatherObjectDto,
             Errors errors) {
-        LOG.debug("Validating object that came to controller");
+        LOG.trace("Validating object that came to controller");
 
         if (errors.hasErrors()) {
             return ResponseEntity.badRequest().body(ErrorsTranslator.from(errors));
         }
 
-        LOG.debug("service.store(weatherObjectDto) invocation");
+        LOG.info("storing object '{}' ", weatherObjectDto);
 
         if (!storageBatchUseCase.store(weatherObjectDto)) {
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);

@@ -19,8 +19,8 @@ public class WeatherObjectAggregationServiceImpl implements WeatherObjectAggrega
     
     
     public WeatherObjectAggregationServiceImpl(File aggregationFile) {
-        LOG.debug("constructing WeatherObjectAggregationServiceImpl...");
-        daoAggregation = new WeatherObjectAggregationDaoImpl(aggregationFile, WeatherObjectAggregation.class);
+        LOG.trace("constructing WeatherObjectAggregationServiceImpl...");
+        daoAggregation = new WeatherObjectAggregationDaoImpl();
     }
 
     @Override
@@ -34,7 +34,7 @@ public class WeatherObjectAggregationServiceImpl implements WeatherObjectAggrega
         try {
             daoAggregation.store(weatherObjects);
         } catch (IOException e) {
-            LOG.error(e.getStackTrace().toString());
+            LOG.error("IO exception while storin aggregation objects", e);
             return false;
         }
         

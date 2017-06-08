@@ -43,16 +43,22 @@ public class WeatherDataAggregatorUtil {
     private static WeatherObjectAggregation getAggregatedObjectFromList(List<WeatherObject> list,
             DateTime now) {
         WeatherObject weatherObject = list.get(0);
-        mteo.savand.avro_generate.batch.GeoLocationObject geoLocationObjectBatch = weatherObject.getGeoLocationObject();
-        
-        WeatherObjectAggregation aggregatedObject = WeatherObjectAggregation.newBuilder()
-                .setDate(now)
-                .setGeoLocationObjectBuilder(GeoLocationObject.newBuilder().setLatitude(geoLocationObjectBatch.getLatitude()).setLongitude(geoLocationObjectBatch.getLongitude()))
-                .setStationId(weatherObject.getStationId())
-                .setHumidityAggregateDataInPercentage(getAggregatedData(getHumidityData(list)))
-                .setTemperatureAggregateDataInDegreesCelsious(getAggregatedData(getTemperatureData(list)))
-                .setWindSpeedAggregateDataInKnots(getAggregatedData(getWindSpeedData(list))).build();
-        
+        mteo.savand.avro_generate.batch.GeoLocationObject geoLocationObjectBatch =
+                weatherObject.getGeoLocationObject();
+
+        WeatherObjectAggregation aggregatedObject =
+                WeatherObjectAggregation.newBuilder().setDate(now)
+                        .setGeoLocationObjectBuilder(GeoLocationObject
+                                .newBuilder().setLatitude(geoLocationObjectBatch.getLatitude())
+                                .setLongitude(geoLocationObjectBatch.getLongitude()))
+                        .setStationId(weatherObject.getStationId())
+                        .setHumidityAggregateDataInPercentage(
+                                getAggregatedData(getHumidityData(list)))
+                        .setTemperatureAggregateDataInDegreesCelsious(
+                                getAggregatedData(getTemperatureData(list)))
+                        .setWindSpeedAggregateDataInKnots(getAggregatedData(getWindSpeedData(list)))
+                        .build();
+
         return aggregatedObject;
     }
 
@@ -60,24 +66,23 @@ public class WeatherDataAggregatorUtil {
     private static List<Float> getAggregatedData(List<Float> data) {
         Float max = Collections.max(data);
         Float min = Collections.min(data);
-        Float average = (float) data.stream().mapToDouble(a -> a)
-        .average().getAsDouble();
+        Float average = (float) data.stream().mapToDouble(a -> a).average().getAsDouble();
         return Arrays.asList(min, max, average);
     }
-    
+
     private static List<Float> getWindSpeedData(List<WeatherObject> list) {
-        return list.stream()
-        .map(a -> (float)a.getWind().getWindSpeedInKnots()).collect(Collectors.toList());
+        return list.stream().map(a -> (float) a.getWind().getWindSpeedInKnots())
+                .collect(Collectors.toList());
     }
-    
+
     private static List<Float> getTemperatureData(List<WeatherObject> list) {
-        return list.stream()
-       .map(a -> (float)a.getTemperatureInDegreesCelsious()).collect(Collectors.toList());
+        return list.stream().map(a -> (float) a.getTemperatureInDegreesCelsious())
+                .collect(Collectors.toList());
     }
 
     private static List<Float> getHumidityData(List<WeatherObject> list) {
-         return list.stream()
-        .map(a -> (float)a.getHumidityInPercentage()).collect(Collectors.toList());
+        return list.stream().map(a -> (float) a.getHumidityInPercentage())
+                .collect(Collectors.toList());
     }
 
     private static Collection<List<WeatherObject>> getListsGroupedByStationId(

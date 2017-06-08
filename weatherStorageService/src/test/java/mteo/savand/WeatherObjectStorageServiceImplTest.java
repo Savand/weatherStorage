@@ -1,6 +1,5 @@
 package mteo.savand;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -19,13 +18,12 @@ import mteo.savand.service.WeatherObjectServiceImpl;
 public class WeatherObjectStorageServiceImplTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(WeatherObjectStorageServiceImplTest.class);
-    private static final String BATCH_FILE_NAME = "d://testBatchService.avro";
     private WeatherObjectService service;
     private WeatherObjectBatchDao<WeatherObject> daoBatch;
     
     @Before
     public void setUp(){
-        service = new WeatherObjectServiceImpl(new File(BATCH_FILE_NAME));
+        service = new WeatherObjectServiceImpl();
         daoBatch = service.getDaoBatch();
     }
     

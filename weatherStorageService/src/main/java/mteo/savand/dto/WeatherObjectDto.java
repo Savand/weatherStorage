@@ -163,4 +163,85 @@ public class WeatherObjectDto {
 
     }
 
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((date == null) ? 0 : date.hashCode());
+        result = prime * result
+                + ((humidityInPercentage == null) ? 0 : humidityInPercentage.hashCode());
+        result = prime * result + ((locationLatitude == null) ? 0 : locationLatitude.hashCode());
+        result = prime * result + ((locationLongitude == null) ? 0 : locationLongitude.hashCode());
+        result = prime * result + ((stationId == null) ? 0 : stationId.hashCode());
+        result = prime * result + ((temperatureInDegreesCelsious == null) ? 0
+                : temperatureInDegreesCelsious.hashCode());
+        result = prime * result + ((windDirection == null) ? 0 : windDirection.hashCode());
+        result = prime * result + ((windSpeedInKnots == null) ? 0 : windSpeedInKnots.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        WeatherObjectDto other = (WeatherObjectDto) obj;
+        if (date == null) {
+            if (other.date != null)
+                return false;
+        } else if (!date.equals(other.date))
+            return false;
+        if (humidityInPercentage == null) {
+            if (other.humidityInPercentage != null)
+                return false;
+        } else if (!humidityInPercentage.equals(other.humidityInPercentage))
+            return false;
+        if (locationLatitude == null) {
+            if (other.locationLatitude != null)
+                return false;
+        } else if (!locationLatitude.equals(other.locationLatitude))
+            return false;
+        if (locationLongitude == null) {
+            if (other.locationLongitude != null)
+                return false;
+        } else if (!locationLongitude.equals(other.locationLongitude))
+            return false;
+        if (stationId == null) {
+            if (other.stationId != null)
+                return false;
+        } else if (!stationId.equals(other.stationId))
+            return false;
+        if (temperatureInDegreesCelsious == null) {
+            if (other.temperatureInDegreesCelsious != null)
+                return false;
+        } else if (!temperatureInDegreesCelsious.equals(other.temperatureInDegreesCelsious))
+            return false;
+        if (windDirection == null) {
+            if (other.windDirection != null)
+                return false;
+        } else if (!windDirection.equals(other.windDirection))
+            return false;
+        if (windSpeedInKnots == null) {
+            if (other.windSpeedInKnots != null)
+                return false;
+        } else if (!windSpeedInKnots.equals(other.windSpeedInKnots))
+            return false;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "WeatherObjectDto [stationId=" + stationId + ", locationLatitude=" + locationLatitude
+                + ", locationLongitude=" + locationLongitude + ", date=" + date
+                + ", temperatureInDegreesCelsious=" + temperatureInDegreesCelsious
+                + ", humidityInPercentage=" + humidityInPercentage + ", windSpeedInKnots="
+                + windSpeedInKnots + ", windDirection=" + windDirection + "]";
+    }
+    
+    
+
 }

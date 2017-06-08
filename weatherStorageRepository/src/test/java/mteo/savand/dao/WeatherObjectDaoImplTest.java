@@ -1,6 +1,5 @@
 package mteo.savand.dao;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -22,17 +21,14 @@ import mteo.savand.avro_generate.batch.WindObject;
 public class WeatherObjectDaoImplTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(WeatherObjectDaoImplTest.class);
-    private static final String BATCH_FILE_NAME = "d://testBatchDao.avro";
-    private static final String AGGR_FILE_NAME = "d://testAggrDao.avro";
 
     private WeatherObjectBatchDao<WeatherObject> batchDao;
     private WeatherObjectAggregationDao<WeatherObjectAggregation> aggregationDao;
 
     @Before
     public void setUp() {
-        batchDao = new WeatherObjectDaoBatchImpl(new File(BATCH_FILE_NAME), WeatherObject.class);
-        aggregationDao = new WeatherObjectAggregationDaoImpl(new File(AGGR_FILE_NAME),
-                WeatherObjectAggregation.class);
+        batchDao = new WeatherObjectDaoBatchImpl();
+        aggregationDao = new WeatherObjectAggregationDaoImpl();
     }
 
     @Test

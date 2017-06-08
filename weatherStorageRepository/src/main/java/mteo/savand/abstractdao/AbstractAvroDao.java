@@ -15,6 +15,8 @@ import org.apache.avro.specific.SpecificRecordBase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import mteo.savand.file_holder.FilesReferanceHolder;
+
 /**
  * Abstract avro dao that has a File object as argument that will serve as a storage.
  * 
@@ -25,24 +27,31 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class AbstractAvroDao<T extends SpecificRecordBase> implements GenericDao<T> {
 
-    protected final Logger LOG = LoggerFactory.getLogger(getClass());
+    protected static final Logger LOG = LoggerFactory.getLogger(AbstractAvroDao.class);
 
     protected DataFileWriter<T> dataFileWriter;
     protected DataFileWriter<T> fileWriter;
     protected DatumWriter<T> datumWriter;
     protected Class<T> type;
+    protected String classSimpleName;
 
     protected DatumReader<T> datumReader;
     protected DataFileReader<T> fileReader;
     protected File storageFile;
 
-    public AbstractAvroDao(File file, Class<T> typeParameterClass) {
-        LOG.debug("constructing WeatherStorageDaoImpl");
-        this.storageFile = file;
+    public AbstractAvroDao(Class<T> typeParameterClass) {
+        this.classSimpleName = typeParameterClass.getSimpleName();
+        LOG.trace("constructing dao for {}", classSimpleName);
         this.datumWriter = new SpecificDatumWriter<>(typeParameterClass);
         this.datumReader = new SpecificDatumReader<>(typeParameterClass);
         this.type = typeParameterClass;
+        this.storageFile = getResource(type);
         initFileWriter();
+    }
+
+
+    private File getResource(Class<T> type) {
+        return FilesReferanceHolder.getInstance().getFIle(type);
     }
 
 
@@ -52,7 +61,7 @@ public abstract class AbstractAvroDao<T extends SpecificRecordBase> implements G
             fileReader.close();
         }
 
-        LOG.debug("writing object to the file");
+        LOG.debug("writing object '{}' to the the file '{}'", object, storageFile);
         fileWriter.append(object);
     }
 
@@ -60,7 +69,7 @@ public abstract class AbstractAvroDao<T extends SpecificRecordBase> implements G
     public List<T> read() {
         prepareFileReading();
 
-        LOG.debug("reading from file");
+        LOG.debug("reading from the file '{}'", storageFile);
         List<T> result = new LinkedList<>();
         fileReader.forEach(item -> result.add(item));
 
@@ -76,7 +85,7 @@ public abstract class AbstractAvroDao<T extends SpecificRecordBase> implements G
 
             fileReader = new DataFileReader<T>(storageFile, datumReader);
         } catch (IOException e) {
-            LOG.error("IOException while creating dataFileReader", e.getStackTrace().toString());
+            LOG.error("IOException while creating dataFileReader", e);
         }
 
         reconnectToFileWriter();
@@ -87,8 +96,7 @@ public abstract class AbstractAvroDao<T extends SpecificRecordBase> implements G
         try {
             fileWriter = dataFileWriter.appendTo(storageFile);
         } catch (IOException e) {
-            LOG.error("IOException while recconecting dataFileWriter",
-                    e.getStackTrace().toString());
+            LOG.error("IOException while recconecting dataFileWriter", e);
         }
 
     }
@@ -99,11 +107,11 @@ public abstract class AbstractAvroDao<T extends SpecificRecordBase> implements G
         try {
             fileWriter = dataFileWriter.create(type.newInstance().getSchema(), storageFile);
         } catch (IOException e) {
-            LOG.error("IOException while creating dataFileWriter", e.getStackTrace().toString());
+            LOG.error("IOException while creating dataFileWriter", e);
         } catch (InstantiationException e) {
-            LOG.error(e.getStackTrace().toString());
+            LOG.error("InstantiationException while initFileWriter", e);
         } catch (IllegalAccessException e) {
-            LOG.error(e.getStackTrace().toString());
+            LOG.error("IllegalAccessException while initFileWriter", e);
         }
 
     }
