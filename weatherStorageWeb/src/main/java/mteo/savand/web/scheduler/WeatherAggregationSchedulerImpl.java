@@ -1,6 +1,5 @@
 package mteo.savand.web.scheduler;
 
-import java.io.File;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -20,12 +19,11 @@ public class WeatherAggregationSchedulerImpl implements WeatherAggregationSchedu
 
     private static final Logger LOG =
             LoggerFactory.getLogger(WeatherAggregationSchedulerImpl.class);
-    private static final String AGGR_FILE_NAME = "d://aggregationData_web.avro";
 
     private WeatherObjectAggregationService service;
 
     public WeatherAggregationSchedulerImpl() {
-        service = new WeatherObjectAggregationServiceImpl(new File(AGGR_FILE_NAME));
+        service = new WeatherObjectAggregationServiceImpl();
     }
 
 

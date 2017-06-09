@@ -1,6 +1,5 @@
 package mteo.savand.service;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class WeatherObjectAggregationServiceImpl implements WeatherObjectAggrega
     private WeatherObjectAggregationDao<WeatherObjectAggregation> daoAggregation;
     
     
-    public WeatherObjectAggregationServiceImpl(File aggregationFile) {
+    public WeatherObjectAggregationServiceImpl() {
         LOG.trace("constructing WeatherObjectAggregationServiceImpl...");
         daoAggregation = new WeatherObjectAggregationDaoImpl();
     }
