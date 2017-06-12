@@ -12,9 +12,10 @@ import mteo.savand.dao.WeatherObjectAggregationDaoImpl;
 
 public class WeatherObjectAggregationServiceImpl implements WeatherObjectAggregationService {
     
+    
     private static final Logger LOG = LoggerFactory.getLogger(WeatherObjectAggregationServiceImpl.class);
 
-    private WeatherObjectAggregationDao<WeatherObjectAggregation> daoAggregation;
+    private final WeatherObjectAggregationDao<WeatherObjectAggregation> daoAggregation;
     
     
     public WeatherObjectAggregationServiceImpl() {
@@ -27,12 +28,13 @@ public class WeatherObjectAggregationServiceImpl implements WeatherObjectAggrega
         return daoAggregation;
     }
     
+    
     @Override
-    public boolean storeWeatherObjectAggregationList(List<WeatherObjectAggregation> weatherObjects) {
+    public boolean storeWeatherObjectAggregationList(final List<WeatherObjectAggregation> weatherObjects) {
         
         try {
             daoAggregation.store(weatherObjects);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             LOG.error("IO exception while storin aggregation objects", e);
             return false;
         }

@@ -22,7 +22,7 @@ import mteo.savand.web.usecase.StorageBatchUseCase;
 @RestController
 @RequestMapping("/rest/weather")
 public class WeatherBatchStorageController {
-
+    
     private static final Logger LOG = LoggerFactory.getLogger(WeatherBatchStorageController.class);
     private final StorageBatchUseCase storageBatchUseCase;
 
@@ -33,8 +33,8 @@ public class WeatherBatchStorageController {
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> store(@Valid @RequestBody WeatherObjectDto weatherObjectDto,
-            Errors errors) {
+    public ResponseEntity<?> store(@Valid @RequestBody final WeatherObjectDto weatherObjectDto,
+            final Errors errors) {
         LOG.trace("Validating object that came to controller");
 
         if (errors.hasErrors()) {

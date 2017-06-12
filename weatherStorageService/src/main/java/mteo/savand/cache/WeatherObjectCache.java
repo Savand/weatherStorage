@@ -22,13 +22,14 @@ public final class WeatherObjectCache{
         return Collections.synchronizedList(new LinkedList<>());
     }
     
-    public static void add(WeatherObject obj){
+    public static void add(final WeatherObject obj){
         if(syncronizedDataList == null){
             syncronizedDataList = startNewCache();
         }
         
         syncronizedDataList.add(obj);
     }
+    
     
     /**
      * get cached data and clears cache

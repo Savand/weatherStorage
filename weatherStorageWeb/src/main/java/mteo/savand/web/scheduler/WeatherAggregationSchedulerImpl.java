@@ -20,7 +20,7 @@ public class WeatherAggregationSchedulerImpl implements WeatherAggregationSchedu
     private static final Logger LOG =
             LoggerFactory.getLogger(WeatherAggregationSchedulerImpl.class);
 
-    private WeatherObjectAggregationService service;
+    private final WeatherObjectAggregationService service;
 
     public WeatherAggregationSchedulerImpl() {
         service = new WeatherObjectAggregationServiceImpl();
@@ -31,14 +31,14 @@ public class WeatherAggregationSchedulerImpl implements WeatherAggregationSchedu
 //     @Scheduled(cron="0 0 * * * *") //each hour
     @Scheduled(cron = "*/30 * * * * *") //each 30 sec
     public void executeAggregation() {
-        List<WeatherObject> dataFromCache = WeatherObjectCache.getDataAndClearCache();
+        final List<WeatherObject> dataFromCache = WeatherObjectCache.getDataAndClearCache();
 
         if (dataFromCache == null) {
             LOG.debug("dataFromCache is Empty or null. Nothing to aggregate");
             return;
         }
 
-        List<WeatherObjectAggregation> aggregatedWeatherobjects =
+        final List<WeatherObjectAggregation> aggregatedWeatherobjects =
                 WeatherDataAggregatorUtil.getAggregatedDataGroupedByStationId(dataFromCache);
 
         LOG.debug("trigger aggregate function");

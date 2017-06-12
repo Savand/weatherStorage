@@ -1,11 +1,11 @@
 package mteo.savand.web.controller.error_handler;
 
 public final class ErrorDto {
-
+    
     private final String field;
     private final String message;
     
-    public ErrorDto(String field, String message) {
+    public ErrorDto(final String field, final String message) {
         this.field = field;
         this.message = message;
     }
@@ -28,14 +28,14 @@ public final class ErrorDto {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj)
             return true;
         if (obj == null)
             return false;
         if (getClass() != obj.getClass())
             return false;
-        ErrorDto other = (ErrorDto) obj;
+        final ErrorDto other = (ErrorDto) obj;
         if (field == null) {
             if (other.field != null)
                 return false;

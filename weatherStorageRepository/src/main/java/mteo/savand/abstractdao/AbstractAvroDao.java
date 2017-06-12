@@ -39,7 +39,7 @@ public abstract class AbstractAvroDao<T extends SpecificRecordBase> implements G
     protected DataFileReader<T> fileReader;
     protected File storageFile;
 
-    public AbstractAvroDao(Class<T> typeParameterClass) {
+    public AbstractAvroDao(final Class<T> typeParameterClass) {
         this.classSimpleName = typeParameterClass.getSimpleName();
         LOG.trace("constructing dao for {}", classSimpleName);
         this.datumWriter = new SpecificDatumWriter<>(typeParameterClass);
@@ -50,13 +50,13 @@ public abstract class AbstractAvroDao<T extends SpecificRecordBase> implements G
     }
 
 
-    private File getResource(Class<T> type) {
+    private File getResource(final Class<T> type) {
         return FilesReferanceHolder.getInstance().getFIle(type);
     }
 
 
     @Override
-    public void store(T object) throws IOException {
+    public void store(final T object) throws IOException {
         if (fileReader != null) {
             fileReader.close();
         }
@@ -70,7 +70,7 @@ public abstract class AbstractAvroDao<T extends SpecificRecordBase> implements G
         prepareFileReading();
 
         LOG.debug("reading from the file '{}'", storageFile);
-        List<T> result = new LinkedList<>();
+        final List<T> result = new LinkedList<>();
         fileReader.forEach(item -> result.add(item));
 
         return result;
@@ -84,7 +84,7 @@ public abstract class AbstractAvroDao<T extends SpecificRecordBase> implements G
             }
 
             fileReader = new DataFileReader<T>(storageFile, datumReader);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             LOG.error("IOException while creating dataFileReader", e);
         }
 
@@ -95,7 +95,7 @@ public abstract class AbstractAvroDao<T extends SpecificRecordBase> implements G
     private void reconnectToFileWriter() {
         try {
             fileWriter = dataFileWriter.appendTo(storageFile);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             LOG.error("IOException while recconecting dataFileWriter", e);
         }
 
@@ -106,11 +106,11 @@ public abstract class AbstractAvroDao<T extends SpecificRecordBase> implements G
         dataFileWriter = new DataFileWriter<T>(datumWriter);
         try {
             fileWriter = dataFileWriter.create(type.newInstance().getSchema(), storageFile);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             LOG.error("IOException while creating dataFileWriter", e);
-        } catch (InstantiationException e) {
+        } catch (final InstantiationException e) {
             LOG.error("InstantiationException while initFileWriter", e);
-        } catch (IllegalAccessException e) {
+        } catch (final IllegalAccessException e) {
             LOG.error("IllegalAccessException while initFileWriter", e);
         }
 

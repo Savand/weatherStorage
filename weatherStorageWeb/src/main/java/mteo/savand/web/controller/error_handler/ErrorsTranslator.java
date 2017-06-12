@@ -7,10 +7,10 @@ import org.springframework.validation.Errors;
 
 
 public class ErrorsTranslator {
+    
+    public static List<ErrorDto> from(final Errors errors) {
 
-    public static List<ErrorDto> from(Errors errors) {
-
-        List<ErrorDto> dtoErrors = errors.getFieldErrors().stream().map(fieldError -> {
+        final List<ErrorDto> dtoErrors = errors.getFieldErrors().stream().map(fieldError -> {
             return new ErrorDto(fieldError.getField(),
                     fieldError.getDefaultMessage());
         }).collect(Collectors.toList());

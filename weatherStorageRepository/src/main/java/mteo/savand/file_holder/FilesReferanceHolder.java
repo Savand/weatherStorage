@@ -27,7 +27,7 @@ public class FilesReferanceHolder {
         this.aggregationFile = new File(AGGREGATION_FILE_ENAME);
     }
 
-    public <T extends SpecificRecordBase> File getFIle(Class<T> type) {
+    public <T extends SpecificRecordBase> File getFIle(final Class<T> type) {
         if (type.equals(WeatherObject.class)) {
             return batchFile;
         } else if (type.equals(WeatherObjectAggregation.class)) {

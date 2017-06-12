@@ -15,12 +15,12 @@ public class WeatherObjectAggregationDaoImpl extends AbstractAvroDao<WeatherObje
     }
 
     @Override
-    public void store(List<WeatherObjectAggregation> weatherObjectAggregationList)
+    public void store(final List<WeatherObjectAggregation> weatherObjectAggregationList)
             throws IOException {
         weatherObjectAggregationList.forEach(item -> {
             try {
                 store(item);
-            } catch (IOException e) {
+            } catch (final IOException e) {
                 LOG.error("IOException while storing aggregated objects", e);
             }
         });

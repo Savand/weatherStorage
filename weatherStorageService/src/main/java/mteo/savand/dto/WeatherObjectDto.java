@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
         isGetterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class WeatherObjectDto {
+    
     @NotNull
     private Integer stationId;
 
@@ -47,7 +48,7 @@ public class WeatherObjectDto {
         return stationId;
     }
 
-    public void setStationId(Integer stationId) {
+    public void setStationId(final Integer stationId) {
         this.stationId = stationId;
     }
 
@@ -55,7 +56,7 @@ public class WeatherObjectDto {
         return locationLatitude;
     }
 
-    public void setLocationLatitude(Float locationLatitude) {
+    public void setLocationLatitude(final Float locationLatitude) {
         this.locationLatitude = locationLatitude;
     }
 
@@ -63,7 +64,7 @@ public class WeatherObjectDto {
         return locationLongitude;
     }
 
-    public void setLocationLongitude(Float locationLongitude) {
+    public void setLocationLongitude(final Float locationLongitude) {
         this.locationLongitude = locationLongitude;
     }
 
@@ -71,7 +72,7 @@ public class WeatherObjectDto {
         return date;
     }
 
-    public void setDate(DateTime date) {
+    public void setDate(final DateTime date) {
         this.date = date;
     }
 
@@ -79,7 +80,7 @@ public class WeatherObjectDto {
         return temperatureInDegreesCelsious;
     }
 
-    public void setTemperatureInDegreesCelsious(Integer temperatureInDegreesCelsious) {
+    public void setTemperatureInDegreesCelsious(final Integer temperatureInDegreesCelsious) {
         this.temperatureInDegreesCelsious = temperatureInDegreesCelsious;
     }
 
@@ -87,7 +88,7 @@ public class WeatherObjectDto {
         return humidityInPercentage;
     }
 
-    public void setHumidityInPercentage(Integer humidityInPercentage) {
+    public void setHumidityInPercentage(final Integer humidityInPercentage) {
         this.humidityInPercentage = humidityInPercentage;
     }
 
@@ -95,7 +96,7 @@ public class WeatherObjectDto {
         return windSpeedInKnots;
     }
 
-    public void setWindSpeedInKnots(Integer windSpeedInKnots) {
+    public void setWindSpeedInKnots(final Integer windSpeedInKnots) {
         this.windSpeedInKnots = windSpeedInKnots;
     }
 
@@ -103,7 +104,7 @@ public class WeatherObjectDto {
         return windDirection;
     }
 
-    public void setWindDirection(String windDirection) {
+    public void setWindDirection(final String windDirection) {
         this.windDirection = windDirection;
     }
 
@@ -116,44 +117,44 @@ public class WeatherObjectDto {
 
         private WeatherObjectDtoBuilder() {}
 
-        public WeatherObjectDtoBuilder setStationId(int stationId) {
+        public WeatherObjectDtoBuilder setStationId(final int stationId) {
             WeatherObjectDto.this.stationId = stationId;
             return this;
         }
 
-        public WeatherObjectDtoBuilder setLocationLatitude(float locationLatitude) {
+        public WeatherObjectDtoBuilder setLocationLatitude(final float locationLatitude) {
             WeatherObjectDto.this.locationLatitude = locationLatitude;
             return this;
         }
 
-        public WeatherObjectDtoBuilder setLocationLongitude(float locationLongitude) {
+        public WeatherObjectDtoBuilder setLocationLongitude(final float locationLongitude) {
             WeatherObjectDto.this.locationLongitude = locationLongitude;
             return this;
         }
 
-        public WeatherObjectDtoBuilder setDate(DateTime date) {
+        public WeatherObjectDtoBuilder setDate(final DateTime date) {
             WeatherObjectDto.this.date = date;
             return this;
         }
 
         public WeatherObjectDtoBuilder setTemperatureInDegreesCelsious(
-                int temperatureInDegreesCelsious) {
+                final int temperatureInDegreesCelsious) {
             WeatherObjectDto.this.temperatureInDegreesCelsious = temperatureInDegreesCelsious;
             return this;
         }
 
 
-        public WeatherObjectDtoBuilder setHumidityInPercentage(int humidityInPercentage) {
+        public WeatherObjectDtoBuilder setHumidityInPercentage(final int humidityInPercentage) {
             WeatherObjectDto.this.humidityInPercentage = humidityInPercentage;
             return this;
         }
 
-        public WeatherObjectDtoBuilder setWindSpeedInKnots(int windSpeedInKnots) {
+        public WeatherObjectDtoBuilder setWindSpeedInKnots(final int windSpeedInKnots) {
             WeatherObjectDto.this.windSpeedInKnots = windSpeedInKnots;
             return this;
         }
 
-        public WeatherObjectDtoBuilder setWindDirection(String windDirection) {
+        public WeatherObjectDtoBuilder setWindDirection(final String windDirection) {
             WeatherObjectDto.this.windDirection = windDirection;
             return this;
         }
@@ -184,14 +185,14 @@ public class WeatherObjectDto {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj)
             return true;
         if (obj == null)
             return false;
         if (getClass() != obj.getClass())
             return false;
-        WeatherObjectDto other = (WeatherObjectDto) obj;
+        final WeatherObjectDto other = (WeatherObjectDto) obj;
         if (date == null) {
             if (other.date != null)
                 return false;

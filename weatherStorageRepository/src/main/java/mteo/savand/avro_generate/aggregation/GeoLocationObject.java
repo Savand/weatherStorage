@@ -28,14 +28,16 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
    * @param latitude The new value for latitude
    * @param longitude The new value for longitude
    */
-  public GeoLocationObject(java.lang.Float latitude, java.lang.Float longitude) {
+  public GeoLocationObject(final java.lang.Float latitude, final java.lang.Float longitude) {
     this.latitude = latitude;
     this.longitude = longitude;
   }
 
-  public org.apache.avro.Schema getSchema() { return SCHEMA$; }
+  @Override
+public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
-  public java.lang.Object get(int field$) {
+  @Override
+public java.lang.Object get(final int field$) {
     switch (field$) {
     case 0: return latitude;
     case 1: return longitude;
@@ -44,8 +46,9 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
   }
 
   // Used by DatumReader.  Applications should not call.
-  @SuppressWarnings(value="unchecked")
-  public void put(int field$, java.lang.Object value$) {
+  @Override
+@SuppressWarnings(value="unchecked")
+  public void put(final int field$, final java.lang.Object value$) {
     switch (field$) {
     case 0: latitude = (java.lang.Float)value$; break;
     case 1: longitude = (java.lang.Float)value$; break;
@@ -65,7 +68,7 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
    * Sets the value of the 'latitude' field.
    * @param value the value to set.
    */
-  public void setLatitude(java.lang.Float value) {
+  public void setLatitude(final java.lang.Float value) {
     this.latitude = value;
   }
 
@@ -81,7 +84,7 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
    * Sets the value of the 'longitude' field.
    * @param value the value to set.
    */
-  public void setLongitude(java.lang.Float value) {
+  public void setLongitude(final java.lang.Float value) {
     this.longitude = value;
   }
 
@@ -98,7 +101,7 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
    * @param other The existing builder to copy.
    * @return A new GeoLocationObject RecordBuilder
    */
-  public static mteo.savand.avro_generate.aggregation.GeoLocationObject.Builder newBuilder(mteo.savand.avro_generate.aggregation.GeoLocationObject.Builder other) {
+  public static mteo.savand.avro_generate.aggregation.GeoLocationObject.Builder newBuilder(final mteo.savand.avro_generate.aggregation.GeoLocationObject.Builder other) {
     return new mteo.savand.avro_generate.aggregation.GeoLocationObject.Builder(other);
   }
 
@@ -107,7 +110,7 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
    * @param other The existing instance to copy.
    * @return A new GeoLocationObject RecordBuilder
    */
-  public static mteo.savand.avro_generate.aggregation.GeoLocationObject.Builder newBuilder(mteo.savand.avro_generate.aggregation.GeoLocationObject other) {
+  public static mteo.savand.avro_generate.aggregation.GeoLocationObject.Builder newBuilder(final mteo.savand.avro_generate.aggregation.GeoLocationObject other) {
     return new mteo.savand.avro_generate.aggregation.GeoLocationObject.Builder(other);
   }
 
@@ -129,7 +132,7 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(mteo.savand.avro_generate.aggregation.GeoLocationObject.Builder other) {
+    private Builder(final mteo.savand.avro_generate.aggregation.GeoLocationObject.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.latitude)) {
         this.latitude = data().deepCopy(fields()[0].schema(), other.latitude);
@@ -145,7 +148,7 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
      * Creates a Builder by copying an existing GeoLocationObject instance
      * @param other The existing instance to copy.
      */
-    private Builder(mteo.savand.avro_generate.aggregation.GeoLocationObject other) {
+    private Builder(final mteo.savand.avro_generate.aggregation.GeoLocationObject other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.latitude)) {
         this.latitude = data().deepCopy(fields()[0].schema(), other.latitude);
@@ -170,7 +173,7 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'latitude'.
       * @return This builder.
       */
-    public mteo.savand.avro_generate.aggregation.GeoLocationObject.Builder setLatitude(float value) {
+    public mteo.savand.avro_generate.aggregation.GeoLocationObject.Builder setLatitude(final float value) {
       validate(fields()[0], value);
       this.latitude = value;
       fieldSetFlags()[0] = true;
@@ -208,7 +211,7 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'longitude'.
       * @return This builder.
       */
-    public mteo.savand.avro_generate.aggregation.GeoLocationObject.Builder setLongitude(float value) {
+    public mteo.savand.avro_generate.aggregation.GeoLocationObject.Builder setLongitude(final float value) {
       validate(fields()[1], value);
       this.longitude = value;
       fieldSetFlags()[1] = true;
@@ -236,11 +239,11 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
     @Override
     public GeoLocationObject build() {
       try {
-        GeoLocationObject record = new GeoLocationObject();
+        final GeoLocationObject record = new GeoLocationObject();
         record.latitude = fieldSetFlags()[0] ? this.latitude : (java.lang.Float) defaultValue(fields()[0]);
         record.longitude = fieldSetFlags()[1] ? this.longitude : (java.lang.Float) defaultValue(fields()[1]);
         return record;
-      } catch (Exception e) {
+      } catch (final Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
     }
@@ -249,7 +252,7 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
   private static final org.apache.avro.io.DatumWriter
     WRITER$ = new org.apache.avro.specific.SpecificDatumWriter(SCHEMA$);
 
-  @Override public void writeExternal(java.io.ObjectOutput out)
+  @Override public void writeExternal(final java.io.ObjectOutput out)
     throws java.io.IOException {
     WRITER$.write(this, SpecificData.getEncoder(out));
   }
@@ -257,7 +260,7 @@ public class GeoLocationObject extends org.apache.avro.specific.SpecificRecordBa
   private static final org.apache.avro.io.DatumReader
     READER$ = new org.apache.avro.specific.SpecificDatumReader(SCHEMA$);
 
-  @Override public void readExternal(java.io.ObjectInput in)
+  @Override public void readExternal(final java.io.ObjectInput in)
     throws java.io.IOException {
     READER$.read(this, SpecificData.getDecoder(in));
   }

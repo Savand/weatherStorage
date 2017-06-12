@@ -10,21 +10,21 @@ import mteo.savand.service.WeatherObjectService;
 import mteo.savand.service.WeatherObjectServiceImpl;
 
 public class StorageBatchUseCase {
-
+    
     private static final Logger LOG = LoggerFactory.getLogger(StorageBatchUseCase.class);
 
-    private WeatherObjectService service;
+    private final WeatherObjectService service;
 
     public StorageBatchUseCase() {
         service = new WeatherObjectServiceImpl();
     }
 
-    public boolean store(WeatherObjectDto weatherObjectDto) {
+    public boolean store(final WeatherObjectDto weatherObjectDto) {
 
         LOG.trace("service.store(weatherObjectDto) invocation");
         try {
             service.store(weatherObjectDto);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             LOG.error("IO exception while calling service.store(weatherObjectDto); ", e);
             return false;
         }
